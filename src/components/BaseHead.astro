@@ -1,0 +1,15 @@
+---
+import '../styles/output.css';
+
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+}
+const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+---
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>

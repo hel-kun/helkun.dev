@@ -1,0 +1,29 @@
+---
+import HeaderLink from '../components/HeaderLink.astro';
+---
+<header class="w-full block">
+    <div class="nav-bar bg-gray-800 text-white">
+        <nav class="container mx-auto px-6 py-2 flex flex-wrap items-center justify-between">
+            <a class="font-bold text-2xl sm:order-1" href="/">
+                <h2>へる破壊財団</h2>
+            </a>
+            <button class="nav-toggle sm:hidden block sm:order-3">
+                <!-- SVG for the hamburger icon -->
+                <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g class="icon-closed">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M4 6h16M4 12h16M4 18h16"/>
+                    </g>
+                    <g class="icon-open hidden">
+                      <path d="M6 18L18 6M6 6l12 12"/>
+                    </g>
+                </svg>
+            </button>
+            <div id="nav-content" class="nav-content sm:order-2 w-full sm:w-auto px-6 sm:px-4 py-2 sm:py-0 sm:flex sm:items-center hidden">
+                <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/">Home</HeaderLink>
+                <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/works">Works</HeaderLink>
+                <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/blog">Blog</HeaderLink>
+                <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/links">Links</HeaderLink>
+            </div>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,21 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const SITE_TITLE = "へる破壊財団";
+const SITE_DESCRIPTION = "へるくんの個人サイト";
+---
+
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+	</head>
+	<body>
+		<Header/>
+		<main>
+			<h1 class="font-bold text-4xl">へるくん</h1>
+		</main>
+		<Footer/>
+	</body>
+</html>
