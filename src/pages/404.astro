@@ -1,32 +1,18 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
-const SITE_TITLE = "へる破壊財団";
-const SITE_DESCRIPTION = "へるくんの個人サイト";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en" prefix="og: https://ogp.me/ns#">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
-	</head>
-	<body>
-		<Header/>
-        <main>
-            <section class="body-font">
-                <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-                    <!--<img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="error" src="Path to your   404         image">-->
-                    <div class="text-center lg:w-2/3 w-full">
-                        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-400">404</h1>
-                        <p class="mt-8 leading-relaxed mb-8">Oops! The page you were looking for could not be found!</p>
-                        <div class="flex justify-center">
-                            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" onclick="window.location.href='/';">Return Home</button>
-                        </div>
-                    </div>
+<BaseLayout>
+    <section class="body-font">
+        <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            <!--<img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="error" src="Path to your   404         image">-->
+            <div class="text-center lg:w-2/3 w-full">
+                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-400">404</h1>
+                <p class="mt-8 leading-relaxed mb-8">Oops! The page you were looking for could not be found!</p>
+                <div class="flex justify-center">
+                    <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" onclick="window.location.href='/';">Return Home</button>
                 </div>
-            </section>
-        </main>
-        <Footer/>
-	</body>
-</html>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

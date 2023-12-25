@@ -2,11 +2,11 @@
 import '../styles/main.css';
 
 interface Props {
-	title: string;
-	description: string;
+	title?: string;
+	description?: string;
 	image?: string;
 }
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title='へる破壊財団', description='へるくんの個人サイト', image = '/blog-placeholder-1.jpg' } = Astro.props;
 ---
 <meta charset="utf-8" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

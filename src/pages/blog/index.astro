@@ -1,109 +1,27 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.date.valueOf() - b.data.date.valueOf()
 );
-
-const SITE_TITLE = "へるぶろぐ";
-const SITE_DESCRIPTION = "へるくんのブログ";
 ---
 
-<html lang="ja" prefix="og: https://ogp.me/ns#">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
-        <style>
-            main {
-				width: 960px;
+<BaseLayout SITE_TITLE="へるぶろぐ" SITE_DESCRIPTION="へるくんのブログ">
+    <section>
+		<ul class="flex flex-wrap m-0 p-0 gap-8 list-none mdmax:gap-2">
+			{
+				posts.map((post) => (
+					<li class="w-[calc(50%_-_1rem)] bg-slate-200 dark:bg-slate-800 rounded-xl mdmax:w-max border-solid border-2 border-slate-800 dark:border-slate-200 text-center transition hover:shadow-lg hover:shadow-slate-500">
+						<a href={`/blog/${post.slug}/`} class="block">
+							<img class="m-0 rounded-xl" width={720} height={540} src={post.data.heroImage} alt="" />
+							<h3 class="mx-2 my-0">{post.data.title}</h3>
+							<p class="dark:text-slate-400 text-slate-600 mx-2 my-0"> {post.data.description}</p>
+							<time class="dark:text-slate-400 text-slate-600 mx-2 mt-0 mb-1" datetime={post.data.date.toISOString()}>{new Intl.DateTimeFormat('ja-JP').format(post.data.date)}</time>
+						</a>
+					</li>
+				))
 			}
-            ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-        </style>
-	</head>
-	<body>
-		<Header/>
-        <main>
-            <section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">{post.data.date}</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-        </main>
-        <Footer/>
-	</body>
-</html>
+		</ul>
+	</section>
+</BaseLayout>

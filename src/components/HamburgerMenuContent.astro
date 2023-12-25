@@ -1,0 +1,16 @@
+---
+import HeaderLink from './HeaderLink.astro';
+
+const headerlinkClassName ="block px-8 py-2 my-2 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" 
+const liClassName = "sm:mx-10 mx-2 border-b";
+
+---
+<ul>
+    <li class={liClassName}><HeaderLink class={headerlinkClassName} href="/">Home</HeaderLink></li>
+    <li class={liClassName}><HeaderLink class={headerlinkClassName} href="/works">Works</HeaderLink></li>
+    <li class={liClassName}><HeaderLink class={headerlinkClassName} href="/blog">Blog</HeaderLink></li>
+    <li class={liClassName}><HeaderLink class={headerlinkClassName} href="/links">Links</HeaderLink></li>
+</ul>
+
+
+

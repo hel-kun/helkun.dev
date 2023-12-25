@@ -1,29 +1,79 @@
 ---
 import HeaderLink from '../components/HeaderLink.astro';
+import HamburgerMenuContent from './HamburgerMenuContent.astro';
 ---
-<header class="w-full block">
-    <div class="nav-bar bg-gray-800 text-white">
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let isActive = false;
+        const button = document.querySelector('#menuButton');
+        const openSvg = document.querySelector('#open');
+        const closeSvg = document.querySelector('#close');
+        const menuContent = document.querySelector('#menuContent');
+
+        button?.addEventListener('click', function(){
+            if(isActive==false){
+                isActive = true;
+                openSvg?.classList.remove('block');
+                openSvg?.classList.add('hidden');
+                closeSvg?.classList.remove('hidden');
+                closeSvg?.classList.add('block');
+                menuContent?.classList.remove('hidden');
+                menuContent?.classList.add('fixed');
+            }
+            else{
+                isActive=false;
+                openSvg?.classList.remove('hidden');
+                openSvg?.classList.add('block');
+                closeSvg?.classList.remove('block');
+                closeSvg?.classList.add('hidden');
+                menuContent?.classList.remove('fixed');
+                menuContent?.classList.add('hidden');
+            }
+        }); 
+    });
+</script>
+
+<header class="block">
+    <div class="w-full bg-gray-800 text-white">
         <nav class="container mx-auto px-6 py-2 flex flex-wrap items-center justify-between">
-            <a class="font-bold text-2xl sm:order-1" href="/">
+            <a class="font-bold text-2xl order-first" href="/">
                 <h2>へる破壊財団</h2>
             </a>
+            <!--
             <button class="nav-toggle sm:hidden block sm:order-3">
-                <!-- SVG for the hamburger icon -->
                 <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g class="icon-closed">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                     </g>
                     <g class="icon-open hidden">
-                      <path d="M6 18L18 6M6 6l12 12"/>
+                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
                     </g>
                 </svg>
             </button>
-            <div id="nav-content" class="nav-content sm:order-2 w-full sm:w-auto px-6 sm:px-4 py-2 sm:py-0 sm:flex sm:items-center hidden">
-                <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/">Home</HeaderLink>
-                <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/works">Works</HeaderLink>
-                <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/blog">Blog</HeaderLink>
-                <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/links">Links</HeaderLink>
+            -->
+            <div class="order-last items-center flex">
+                <div class="w-full sm:w-auto px-6 sm:px-4 py-2 sm:py-0 sm:flex hidden">
+                    <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/">Home</HeaderLink>
+                    <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/works">Works</HeaderLink>
+                    <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/blog">Blog</HeaderLink>
+                    <HeaderLink class="block sm:inline-block mt-4 sm:mt-0 mr-6 hover:text-yellow-500 [&.active]:text-yellow-500 [&.active]:font-bold" href="/links">Links</HeaderLink>
+                </div>
+                <div>
+                    <button id="menuButton" class="text-white hover:hover:text-yellow-500">
+                        <svg id="open" class="block" xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512" fill="currentColor">
+                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                            <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                        </svg>
+                        <svg id="close" class="hidden" xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512" fill="currentColor">
+                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </nav>
+    </div>
+    <div id="menuContent" class="hidden w-1/2 sm:w-1/3 sm:left-2/3 h-screen left-1/2 bg-opacity-60 bg-gray-800 text-white">
+        <HamburgerMenuContent/>
     </div>
 </header>
