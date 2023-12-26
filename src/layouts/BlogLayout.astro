@@ -1,8 +1,5 @@
 ---
 import { type CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import BaseLayout from './BaseLayout.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
@@ -16,7 +13,7 @@ const { title, description, date, heroImage } = Astro.props;
 		</div>
 		<div class="m-auto p-2 ">
 			<div class="text-center py-2 px-0 mb-4 leading-4">
-				<h1>{title}</h1>
+				<h1 class="mb-2">{title}</h1>
 				<p class="mb-2 dark:text-slate-400 text-slate-600">
 					{description}
 				</p>

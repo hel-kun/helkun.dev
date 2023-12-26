@@ -6,10 +6,23 @@ interface Props {
 	description?: string;
 	image?: string;
 }
-const { title='へる破壊財団', description='へるくんの個人サイト', image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title='へる破壊財団', description='へるくんの個人サイト', image = '/favicon.svg' } = Astro.props;
 ---
 <meta charset="utf-8" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
+
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
 <title>{title}</title>

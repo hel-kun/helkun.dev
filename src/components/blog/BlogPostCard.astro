@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from "astro:content";
+type Props = {
+  post: CollectionEntry<"blog">
+}
+
+const { post } = Astro.props;
+---
+<li class="w-[calc(50%_-_1rem)] bg-slate-200 dark:bg-slate-800 rounded-xl mdmax:w-max border-solid border-2 border-slate-800 dark:border-slate-200 text-center transition hover:shadow-lg hover:shadow-slate-500">
+    <a href={`/blog/${post.slug}/`} class="block">
+        <img class="m-0 rounded-xl" width={720} height={540} src={post.data.heroImage} alt={post.data.description} />
+        <h3 class="mx-2 my-0">{post.data.title}</h3>
+        <p class="dark:text-slate-400 text-slate-600 mx-2 my-0"> {post.data.description}</p>
+        <time class="dark:text-slate-400 text-slate-600 mx-2 mt-0 mb-1" datetime={post.data.date.toISOString()}>{new Intl.DateTimeFormat('ja-JP').format(post.data.date)}</time>
+    </a>
+</li>

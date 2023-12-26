@@ -1,0 +1,20 @@
+---
+const {url} = Astro.props;
+
+const w=await(await fetch(url)).text(),
+metadata=[...w.matchAll(/(og|twitter):(title|description|image).*? content="(.*?)"/g)].reduce((a,x)=>(
+        a[x[2]]=x[3],a
+    ),{});
+---
+
+<a href={url} class="block max-w-sm max-h-min mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500" target="_blank">
+    <div class="sm:flex">
+      <div class="">
+        <img class="h-32 w-full object-cover sm:w-48 sm:border-r-2 maxsm:border-b-2" src={metadata.image||"@public/no-image.svg"} alt={metadata.description}>
+      </div>
+      <div class="p-8">
+        <p class="block mt-1 text-xl leading-tight font-bold">{metadata.title}</p>
+        <p class="mt-2 text-md dark:text-slate-400 text-slate-600">{metadata.description}</p>
+      </div>
+    </div>
+</a>

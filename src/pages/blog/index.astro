@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogPostCard from '@/components/blog/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
@@ -9,20 +10,10 @@ const posts = (await getCollection('blog')).sort(
 
 <BaseLayout SITE_TITLE="へるぶろぐ" SITE_DESCRIPTION="へるくんのブログ">
 	<h1 class="font-bold text-4xl mb-4">へるぶろぐ</h1>
+	<p class="mb-4">全ての記事一覧です</p>
     <section>
 		<ul class="flex flex-wrap m-0 p-0 gap-8 list-none mdmax:gap-2">
-			{
-				posts.map((post) => (
-					<li class="w-[calc(50%_-_1rem)] bg-slate-200 dark:bg-slate-800 rounded-xl mdmax:w-max border-solid border-2 border-slate-800 dark:border-slate-200 text-center transition hover:shadow-lg hover:shadow-slate-500">
-						<a href={`/blog/${post.slug}/`} class="block">
-							<img class="m-0 rounded-xl" width={720} height={540} src={post.data.heroImage} alt="" />
-							<h3 class="mx-2 my-0">{post.data.title}</h3>
-							<p class="dark:text-slate-400 text-slate-600 mx-2 my-0"> {post.data.description}</p>
-							<time class="dark:text-slate-400 text-slate-600 mx-2 mt-0 mb-1" datetime={post.data.date.toISOString()}>{new Intl.DateTimeFormat('ja-JP').format(post.data.date)}</time>
-						</a>
-					</li>
-				))
-			}
+			{posts.map((post) => <BlogPostCard post={post}/>)}
 		</ul>
 	</section>
 </BaseLayout>

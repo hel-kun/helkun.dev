@@ -1,1 +1,1 @@
-export const SITE_URL='hrrps://helkun.dev'
+export const SITE_URL='https://helkun.dev'
