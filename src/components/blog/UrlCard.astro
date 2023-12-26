@@ -1,13 +1,17 @@
 ---
 const {url} = Astro.props;
 interface ogpdata {
-  title:String;
-  description:String;
-  image:String;
+  title:string;
+  description:string;
+  image:string;
 }
-const w=await(await fetch(url)).text(),
-match=[...w.matchAll(/(og|twitter):(?<type>title|description|image).*? content="(?<content>.*?)"/g)],
-metadata=match.reduce((a,x)=>(a[x?.groups?.type]=x?.groups?.content,a),{});
+interface matchdata {
+
+}
+const w=await(await fetch(url)).text();
+const match=[...w.matchAll(/(og|twitter):(?<type>title|description|image).*? content="(?<content>.*?)"/g)];
+// @ts-ignore
+const metadata=match.reduce((a: ogpdata,x)=>(a[x?.groups?.type]=x?.groups?.content,a),{title: "", description:"", image:""});
 ---
 
 <a href={url} class="block max-w-sm max-h-min mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500" target="_blank">
