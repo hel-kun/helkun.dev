@@ -17,7 +17,7 @@ const metadata=match.reduce((a: ogpdata,x)=>(a[x?.groups?.type]=x?.groups?.conte
 <a href={url} class="block max-w-sm max-h-min mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500" target="_blank">
     <div class="sm:flex">
       <div class="">
-        <img class="h-32 w-full object-cover sm:w-48 sm:border-r-2 maxsm:border-b-2" src={metadata.image||"https://helkun.dev/no-image.svg"} alt={metadata.description}>
+        <img class="h-32 w-full object-cover sm:w-48 sm:border-r-2 smax:border-b-2" src={metadata.image||"https://helkun.dev/no-image.svg"} alt={metadata.description}>
       </div>
       <div class="p-8">
         <p class="block mt-1 text-xl leading-tight font-bold">{metadata.title}</p>
