@@ -6,9 +6,8 @@ interface ogpdata {
   image:String;
 }
 const w=await(await fetch(url)).text(),
-metadata=[...w.matchAll(/(og|twitter):(title|description|image).*? content="(.*?)"/g)].reduce((a,x)=>(
-        a[x[2]]=x[3],a
-    ),{}as ogpdata);
+match=[...w.matchAll(/(og|twitter):(?<type>title|description|image).*? content="(?<content>.*?)"/g)],
+metadata=match.reduce((a,x)=>(a[x?.groups?.type]=x?.groups?.content,a),{});
 ---
 
 <a href={url} class="block max-w-sm max-h-min mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500" target="_blank">
