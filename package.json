@@ -12,12 +12,12 @@
   "dependencies": {
     "@astrojs/check": "^0.3.1",
     "@astrojs/mdx": "^2.0.1",
-    "@astrojs/tailwind": "^5.0.3",
+    "@astrojs/tailwind": "^5.0.4",
     "astro": "^4.0.4",
     "fetch-site-metadata": "^0.2.0",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.6"
+    "tailwindcss": "^3.4.0"
   }
 }

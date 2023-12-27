@@ -16,7 +16,7 @@ const tweet = await fetch(baseUrl.toString())
 
 {
   tweet && (
-    <div class="flex justify-center m-6">
+    <div class="flex justify-center mx-auto my-4 w-full max-w-md">
       <div set:html={tweet.html} />
       <script
         async

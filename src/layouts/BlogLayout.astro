@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry } from 'astro:content';
-import BaseLayout from './BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -24,7 +24,41 @@ const { title, description, date, heroImage } = Astro.props;
 				</p>
 				<hr/>
 			</div>
-			<slot/>
+			<article class="blogContent"><slot/></article>
 		</div>
 	</article>
 </BaseLayout>
+
+<style is:global>
+	.blogContent{
+		h2{
+			@apply inline-block my-4 border-b-4 border-b-yellow-400;
+		}
+		a{
+			@apply underline text-blue-500 dark:text-blue-400;
+		}
+		figure{
+			@apply my-4;
+			img{
+				@apply m-auto w-full max-w-sm rounded-xl justify-center;
+			}
+			figcaption{
+				@apply text-center m-auto;
+			}
+		}
+		.urlCard{
+			a{
+				@apply block no-underline max-w-sm max-h-min mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500 dark:hover:shadow-slate-400;
+			}
+			img{
+				@apply h-32 w-full object-cover sm:w-48 border-black dark:border-white sm:border-r-2 smax:border-b-2 mx-0 rounded-xl;
+			}
+			.title{ 
+				@apply block mt-1 text-xl leading-tight font-bold text-black dark:text-white;
+			}
+			.description{
+				@apply mt-2 text-base dark:text-slate-400 text-slate-600;
+			}
+		}
+	}
+</style>

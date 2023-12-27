@@ -9,6 +9,9 @@
     main{
         @apply w-screen max-w-3xl mt-16 flex-1 m-auto px-10 py-6 mdmax:p-5  text-start ;
     }
+}
+
+@layer components{
     h1 {
         @apply text-4xl font-bold;
     }

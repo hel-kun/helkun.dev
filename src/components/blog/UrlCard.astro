@@ -1,27 +1,19 @@
 ---
 const {url} = Astro.props;
-interface ogpdata {
-  title:string;
-  description:string;
-  image:string;
-}
-interface matchdata {
 
-}
 const w=await(await fetch(url)).text();
-const match=[...w.matchAll(/(og|twitter):(?<type>title|description|image).*? content="(?<content>.*?)"/g)];
+const match=[...w.matchAll(/(og|twitter):(?<type>title|description|image)".*? content="(?<content>.*?)"/g)];
 // @ts-ignore
-const metadata=match.reduce((a: ogpdata,x)=>(a[x?.groups?.type]=x?.groups?.content,a),{title: "", description:"", image:""});
+const metadata=match.reduce((a,x)=>(a[x?.groups?.type]=x?.groups?.content,a),{title: (w.match(/<title>(.*?)<\/title>/)||"")[1], description: (w.match(/name="description".*?content="(.*?)"/)||"")[1], image:""});
 ---
-
-<a href={url} class="block max-w-sm max-h-min mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500" target="_blank">
-    <div class="sm:flex">
-      <div class="">
-        <img class="h-32 w-full object-cover sm:w-48 sm:border-r-2 smax:border-b-2" src={metadata.image||"https://helkun.dev/no-image.svg"} alt={metadata.description}>
+<div class="urlCard">
+  <a href={url} target="_blank">
+      <div class="sm:flex">
+        <img src={metadata.image||"https://helkun.dev/no-image.svg"} alt={metadata.description}>
+        <div class="p-8">
+          <p class="title">{metadata.title}</p>
+          <p class="description">{metadata.description}</p>
+        </div>
       </div>
-      <div class="p-8">
-        <p class="block mt-1 text-xl leading-tight font-bold">{metadata.title}</p>
-        <p class="mt-2 text-md dark:text-slate-400 text-slate-600">{metadata.description}</p>
-      </div>
-    </div>
-</a>
+  </a>
+</div>
