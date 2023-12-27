@@ -46,6 +46,9 @@ const { title, description, date, heroImage } = Astro.props;
 				@apply text-center m-auto;
 			}
 		}
+		.twitterCard{
+			@apply flex sm:mx-auto my-4 w-full max-w-md;
+		}
 		.urlCard{
 			a{
 				@apply block no-underline max-w-sm max-h-min mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500 dark:hover:shadow-slate-400;
