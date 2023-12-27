@@ -3,16 +3,25 @@ const {url} = Astro.props;
 
 const w=await(await fetch(url)).text();
 const match=[...w.matchAll(/(og|twitter):(?<type>title|description|image)".*? content="(?<content>.*?)"/g)];
-// @ts-ignore
-const metadata=match.reduce((a,x)=>(a[x?.groups?.type]=x?.groups?.content,a),{title: (w.match(/<title>(.*?)<\/title>/)||"")[1], description: (w.match(/name="description".*?content="(.*?)"/)||"")[1], image:""});
+
+const metadata=match.reduce(
+  (a,x)=>(
+    a[x!.groups!.type]=x!.groups!.content,a
+  ),
+  {
+    "title": (w.match(/<title>(.*?)<\/title>/)||"")[1], 
+    "description": (w.match(/name="description".*?content="(.*?)"/)||"")[1], 
+    "image":""
+  } as Record<string, string>
+);
 ---
 <div class="urlCard">
   <a href={url} target="_blank">
       <div class="sm:flex">
-        <img src={metadata.image||"https://helkun.dev/no-image.svg"} alt={metadata.description}>
+        <img src={metadata["image"]||"https://helkun.dev/no-image.svg"} alt={metadata["description"]}>
         <div class="p-8">
-          <p class="title">{metadata.title}</p>
-          <p class="description">{metadata.description}</p>
+          <p class="title">{metadata["title"]}</p>
+          <p class="description">{metadata["description"]}</p>
         </div>
       </div>
   </a>
