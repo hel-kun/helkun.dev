@@ -7,7 +7,7 @@
         @apply min-h-screen flex flex-col bg-gray-100 text-black dark:bg-slate-950 dark:text-white ;
     }
     main{
-        @apply w-screen max-w-3xl mt-16 flex-1 m-auto px-10 py-6 mdmax:p-5  text-start ;
+        @apply w-screen max-w-4xl mt-16 flex-1 m-auto px-10 py-6 mdmax:p-5  text-start ;
     }
 }
 
