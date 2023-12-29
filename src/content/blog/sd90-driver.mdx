@@ -1,0 +1,115 @@
+---
+title: 'SD-90のドライバをWin11にぶち込もう'
+description: '私は入れるのに苦戦しました'
+tags: ["音楽","技術"]
+date: 2023-06-02
+heroImage: 'https://helkun.dev/image/blog/sd90-driver/sd-90.jpg'
+---
+import UrlCard from '@/components/blog/UrlCard.astro';
+import TwitterCard from '@/components/blog/TwitterCard.astro';
+import ImgCard from '@/components/blog/ImgCard.astro';
+import Blockquote from '@/components/blog/Blockquote.astro';
+export const components = {blockquote: Blockquote};
+
+こんにちは、へるくんです。最近マイクラをやりすぎて曲がまったくかけておりません。(〆切がやばい！！！)
+
+今年の3月についにデスクトップPCを組み立てました。その時にSD-90という骨董品を使うためのドライバを入れるのに大苦戦したので、その入れ方の話が出来たらいいなと思います。
+
+## そもそもSD-90とは？
+> EDIROL SD-90は、Rolandが製造したハードウェア音源です。これは、MIDIキーボードやコンピューターと接続して使用することができる、オールインワンの音楽制作ユニットです。
+> 
+> SD-90は、様々な音色や音楽エフェクトを備えており、高品質な音源として知られています。内部には、数百以上の音色（サンプル音源）が収録されており、ピアノ、ギター、ドラム、管楽器など、さまざまな楽器の音を再現することができます。 
+> 
+> また、SD-90は、MIDIキーボードやコンピューターからのMIDI信号を受け取り、音源として鳴らすことができます。MIDI信号に含まれる演奏データを解釈し、対応する音色で音を生成します。これにより、演奏の録音や編集、シーケンス作業などが容易に行えます。 SD-90は、エフェクトプロセッサも内蔵しており、リバーブ、コーラス、ディレイなど、さまざまなエフェクトを音にかけることができます。これにより、より表現豊かな音楽制作が可能となります。
+> 
+> なお、EDIROL SD-90は一部のミュージシャンやプロデューサーによって広く使用されてきましたが、現在では新しいモデルや他の製品に取って代わられている可能性があります。したがって、最新の情報を入手するためには、Rolandの公式ウェブサイトや販売代理店に問い合わせることをおすすめします。
+
+と、ChatGPTが答えてました。まあ、東方Projectの原曲に使われている音源です。
+
+## SD-90のドライバ事情
+なんとSD-90のドライバは公式ではWin8までしか出ていません！そんなわけで今のWin10以降の環境でSD-90を使うには一手間かかります。この先、SD-90を使いたい人が私みたいに苦戦しないように今からドライバのインストール方法を説明します。
+
+## インストール方法
+### 1. Win8/8.1版のSD-90ドライバをインストールする
+こちらの[Roland公式ページ](http://static.roland.com/support_archive/jp/SD-90_62482892_readme_jp.html?_gl=1*for997*_gcl_au*MzQxNTMwMzQxLjE2ODU1MzM0Njk.*_ga*NjY2NTY3Mjc4LjE2ODU1MzM0Njk.*_ga_CF0D38ZPLC*MTY4NTYwOTgwNy4zLjAuMTY4NTYwOTgwNy42MC4wLjA.&_ga=2.15491890.504392551.1685533469-666567278.1685533469)からWindows 8 / 8.1版のドライバをインストールしてzipファイルを解凍してください。
+
+もし、以前にSD-90のドライバをインストールしたことがある人はこの段階で解凍したフォルダの中に入っているuninstall.exeを実行することをお勧めします。
+
+### 2. ドライバ内のinfファイルを書き換える
+解凍したファイルの中に「Files」というフォルダが入っているはずです。そのフォルダの中の「64bit」->「Files」というフォルダの中に「RDIF1016.INF」というファイルがあると思います。それの中身を書き換えましょう。
+
+<ImgCard title="こんな警告も無視して開きます" url="https://helkun.dev/image/blog/sd90-driver/warning.png" alt="警告画面" />
+
+さて、このinfファイルの中身を見てみると、このように書かれている場所があると思います。
+```
+[Manufacturer]
+%MfgName%=Roland,NTamd64.6.2,NTamd64.7
+
+;[ControlFlags]
+;ExcludeFromSelect=*
+
+[Roland]
+;; Windows7 - Windows XP 64
+;; not supported
+
+[Roland.NTamd64.6.2]
+;; Windows8
+%RDID0016DeviceDesc%=RDID0016Install, USB\VID_0582&PID_0016 ; SD-90
+
+[Roland.NTamd64.7]
+;; not supported
+
+;
+```
+
+これを下記のように書き換えます。
+```
+[Manufacturer]
+%MfgName%=Roland,NTamd64.6.2,NTamd64.7,NTamd64.10
+
+;[ControlFlags]
+;ExcludeFromSelect=*
+
+[Roland]
+;; Windows7 - Windows XP 64
+;; not supported
+
+[Roland.NTamd64.6.2]
+;; Windows8
+%RDID0016DeviceDesc%=RDID0016Install, USB\VID_0582&PID_0016 ; SD-90
+
+[Roland.NTamd64.7]
+;; Windows10
+%RDID0016DeviceDesc%=RDID0016Install, USB\VID_0582&PID_0016 ; SD-90
+
+[Roland.NTamd64.10]
+;; Windows11
+%RDID0016DeviceDesc%=RDID0016Install, USB\VID_0582&PID_0016 ; SD-90
+;
+```
+
+これで書き換えは完了です。
+
+余談ですが、私はこの書き換えを間違えてしまい、infファイルを破壊して顔がなくなりました...。皆さんはこうならないようにしましょう(上のやつをコピペして書き換えるのが書き間違えもなくていいと思います。)
+
+### 3. Windows Defenderの設定をいじる
+この設定はセキュリティソフトとしてWindowsディフェンダーを使っている場合の説明です。別のセキュリティソフトを導入している人は分かりません。
+
+まず、Windowsセキュリティを開きます。
+
+<ImgCard title="タスクバーから開くこともできます" url="https://helkun.dev/image/blog/sd90-driver/taskbar.png" alt="タスクバーの画像" />
+
+開いたら、デバイスセキュリティをクリックして、コア分離の詳細を開きましょう。すると、メモリ整合性の設定ができると思うので、これをオフにしてください。
+
+<ImgCard title="このようになればオッケー" url="https://helkun.dev/image/blog/sd90-driver/coa-divide.png" alt="メモリ整合性の設定画面" />
+
+### 4. 署名なしドライバを実行できるようにする
+説明が面倒なので、以下のサイトを参考にしてください。(説明してくれーって言われた書きますが...)
+
+<UrlCard url="https://freesoft.tvbok.com/win10/testmode.html#a03" />
+
+### 5. ドライバを入れる
+さて、後はSD-90のドライバフォルダに入っているinstall.exeを実行しましょう。これでインストールに成功したら、あなたは人生の勝利者です！
+
+## 最後に
+人生の勝利者になった君！君も東方風erにならないかい？(もし、このインストール方法に間違いがあったら[@hel_kun](https://twitter.com/hel_kun)に連絡してくれると助かります)

@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, date, heroImage } = Astro.props;
+const { title, description, tags, date, heroImage } = Astro.props;
 ---
 <BaseLayout SITE_TITLE={title} SITE_DESCRIPTION={description} SITE_IMAGE={heroImage}>
 	<article>
@@ -13,6 +13,7 @@ const { title, description, date, heroImage } = Astro.props;
 		</div>
 		<div class="m-auto p-2 ">
 			<div class="text-center py-2 px-0 mb-4 leading-4">
+				<div class="flex">{tags.map((tag) => <p class="mx-1"><a href={`/blog/${tag}`} class="underline text-blue-500 dark:text-blue-400">#{tag}<a/></p>)}</div>
 				<h1 class="mb-2">{title}</h1>
 				<p class="mb-2 dark:text-slate-400 text-slate-600">
 					{description}
@@ -34,6 +35,9 @@ const { title, description, date, heroImage } = Astro.props;
 		h2{
 			@apply inline-block my-4 border-b-4 border-b-yellow-400;
 		}
+		h3{
+			@apply my-2
+		}
 		a{
 			@apply underline text-blue-500 dark:text-blue-400;
 		}
@@ -45,6 +49,12 @@ const { title, description, date, heroImage } = Astro.props;
 			figcaption{
 				@apply text-center m-auto;
 			}
+		}
+		blockquote{
+			@apply sm:mx-8 mx-2 my-2 p-4 border-solid border-l-8 border-blue-400 bg-gray-300 dark:bg-gray-700;
+		}
+		pre{
+			@apply rounded-lg sm:mx-8 mx-2 p-4 my-2;
 		}
 		.twitterCard{
 			@apply block mx-auto my-4 w-full max-w-md;

@@ -4,15 +4,20 @@ import BlogPostCard from '@/components/blog/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.date.valueOf() - b.data.date.valueOf()
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
+
+const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
 ---
 
 <BaseLayout SITE_TITLE="へるぶろぐ" SITE_DESCRIPTION="へるくんのブログ">
 	<h1 class="font-bold text-4xl mb-4">へるぶろぐ</h1>
+	<div  class="flex mb-2">
+		{tags.map((tag) => <p class="mx-1"><a href={`/blog/${tag}`} class="underline hover:text-blue-500 hover:dark:text-blue-400">#{tag}<a/></p>)}
+	</div>
 	<p class="mb-4">全ての記事一覧です</p>
     <section>
-		<ul class="flex flex-wrap m-0 p-0 gap-8 list-none mdmax:gap-2">
+		<ul class="flex flex-wrap m-0 p-0 gap-8 list-none mdmax:gap-2 items-stretch">
 			{posts.map((post) => <BlogPostCard post={post}/>)}
 		</ul>
 	</section>
