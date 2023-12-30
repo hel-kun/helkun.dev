@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 
-const title= `「# ${tag}」の記事 - へるぶろぐ`;
+const title= `「#${tag}」の記事 - へるぶろぐ`;
 ---
 <BaseLayout SITE_TITLE={title} SITE_DESCRIPTION="へるくんのブログ">
 	<h1 class="font-bold text-4xl mb-4">へるぶろぐ</h1>

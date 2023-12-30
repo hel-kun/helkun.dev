@@ -13,5 +13,5 @@ const { post } = Astro.props;
     <h3 class="mx-2 my-0">{post.data.title}</h3>
     <p class="dark:text-slate-400 text-slate-600 mx-2 my-0"> {post.data.description}</p>
     <time class="dark:text-slate-400 text-slate-600 mx-2 mt-0 mb-1" datetime={post.data.date.toISOString()}>{new Intl.DateTimeFormat('ja-JP').format(post.data.date)}</time>
-  </a>
+  </a> 
 </li>
