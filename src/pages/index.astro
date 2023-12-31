@@ -1,5 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogPostCard from '@/components/blog/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const latestpost = (await getCollection('blog')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+)[0];
 ---
 
 <BaseLayout SITE_TITLE = "へる破壊財団" SITE_DESCRIPTION="へるくんの個人サイト">
@@ -7,6 +13,132 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 		<h1 class="font-bold text-4xl">へるくん</h1>
 		<p class="dark:text-slate-400 text-slate-600 text-2xl italic mx-1">Hel</p>
 	</div>
-	
-	<p>このサイトは現在工事中です。</p>
+	<div class="box">
+		<h2>About me</h2>
+		<section class="flex items-center my-1">
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" fill="currentcolor">
+				<path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path>
+			</svg>
+			<p>埼玉県</p>
+		</section>
+		<section class="flex items-center my-1">
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor" viewBox="0 0 256 256">
+				<path d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm0,56v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Z"></path>
+			</svg>
+			<p>電気通信大学(学部2年)</p>
+		</section>
+		<section class="flex items-center my-1">
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor" viewBox="0 0 256 256">
+				<path d="M232,112a24,24,0,0,0-24-24H136V79a32.06,32.06,0,0,0,24-31c0-28-26.44-45.91-27.56-46.66a8,8,0,0,0-8.88,0C122.44,2.09,96,20,96,48a32.06,32.06,0,0,0,24,31v9H48a24,24,0,0,0-24,24v23.33a40.84,40.84,0,0,0,8,24.24V200a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V159.57a40.84,40.84,0,0,0,8-24.24ZM112,48c0-13.57,10-24.46,16-29.79,6,5.33,16,16.22,16,29.79a16,16,0,0,1-32,0ZM40,112a8,8,0,0,1,8-8H208a8,8,0,0,1,8,8v23.33c0,13.25-10.46,24.31-23.32,24.66A24,24,0,0,1,168,136a8,8,0,0,0-16,0,24,24,0,0,1-48,0,8,8,0,0,0-16,0,24,24,0,0,1-24.68,24C50.46,159.64,40,148.58,40,135.33Zm160,96H56a8,8,0,0,1-8-8V172.56A38.77,38.77,0,0,0,62.88,176a39.69,39.69,0,0,0,29-11.31A40.36,40.36,0,0,0,96,160a40,40,0,0,0,64,0,40.36,40.36,0,0,0,4.13,4.67A39.67,39.67,0,0,0,192,176c.38,0,.76,0,1.14,0A38.77,38.77,0,0,0,208,172.56V200A8,8,0,0,1,200,208Z"></path>
+			</svg>
+			<p>2004年2月6日</p>
+		</section>
+		<section class="flex items-center my-1">
+			<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor" viewBox="0 0 256 256">
+				<path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path>
+			</svg>
+			<p>コンピュータ / ジャンク / 音楽 / 徒歩 / 原神</p>
+		</section>
+	</div>
+
+	<div class="flex flex-wrap m-0 p-0 gap-8 mdmax:gap-2 items-stretch">
+		<div class="box sm:w-[calc(50%_-_1rem)] w-full">
+			<h2>Latest Blog</h2>
+			<div class="mx-auto my-2 p-0 gap-8 list-none mdmax:gap-2 w-[calc(100%_-_1rem)] bg-slate-200 dark:bg-slate-800 rounded-xl  border-solid border-2 border-slate-800 dark:border-slate-200 text-center transition hover:shadow-lg hover:shadow-slate-500 dark:hover:shadow-slate-400">
+				<a href={`/blog/${latestpost.slug}/`} class="block">
+					<img class="m-0 rounded-xl" width={720} height={540} src={latestpost.data.heroImage} alt={latestpost.data.description} />
+					<div class="flex">{latestpost.data.tags.map((tag) => <p class="mx-1 text-start underline text-blue-500 dark:text-blue-400">#{tag}</p>)}</div>
+					<h3 class="mx-2 my-0">{latestpost.data.title}</h3>
+					<p class="dark:text-slate-400 text-slate-600 mx-2 my-0"> {latestpost.data.description}</p>
+					<time class="dark:text-slate-400 text-slate-600 mx-2 mt-0 mb-1" datetime={latestpost.data.date.toISOString()}>{new Intl.DateTimeFormat('ja-JP').format(latestpost.data.date)}</time>
+				</a> 
+			</div>
+		</div>
+
+		<div class="box sm:w-[calc(50%_-_1rem)] w-full">
+			<h2>SNS</h2>
+
+			<section class="flex items-center my-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor" viewBox="0 0 256 256">
+					<path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
+				</svg>
+				<p>
+					<a href="https://twitter.com/hel_kun" class="underline text-blue-500 dark:text-blue-400" target="_blank">@helkun</a> (メイン)
+					<br/>
+					<a href="https://twitter.com/hel_kun" class="underline text-blue-500 dark:text-blue-400" target="_blank">@madhell_uec</a> (サブ)
+				</p>
+			</section>
+
+			<section class="flex items-center my-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor" viewBox="0 0 256 256">
+					<path d="M164.44,121.34l-48-32A8,8,0,0,0,104,96v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,145.05V111l25.58,17ZM234.33,69.52a24,24,0,0,0-14.49-16.4C185.56,39.88,131,40,128,40s-57.56-.12-91.84,13.12a24,24,0,0,0-14.49,16.4C19.08,79.5,16,97.74,16,128s3.08,48.5,5.67,58.48a24,24,0,0,0,14.49,16.41C69,215.56,120.4,216,127.34,216h1.32c6.94,0,58.37-.44,91.18-13.11a24,24,0,0,0,14.49-16.41c2.59-10,5.67-28.22,5.67-58.48S236.92,79.5,234.33,69.52Zm-15.49,113a8,8,0,0,1-4.77,5.49c-31.65,12.22-85.48,12-86,12H128c-.54,0-54.33.2-86-12a8,8,0,0,1-4.77-5.49C34.8,173.39,32,156.57,32,128s2.8-45.39,5.16-54.47A8,8,0,0,1,41.93,68c30.52-11.79,81.66-12,85.85-12h.27c.54,0,54.38-.18,86,12a8,8,0,0,1,4.77,5.49C221.2,82.61,224,99.43,224,128S221.2,173.39,218.84,182.47Z"></path>
+				</svg>
+				<a href="https://www.youtube.com//@hel_kun" class="underline text-blue-500 dark:text-blue-400" target="_blank">@hel_kun</a> 
+			</section>
+
+			<section class="flex items-center my-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor" viewBox="0 0 256 256">
+					<path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"></path>
+				</svg>
+				<a href="https://github.com/hel-kun" class="underline text-blue-500 dark:text-blue-400" target="_blank">helkun</a> 
+			</section>
+
+			<section class="flex items-center my-2">
+				<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor">
+					<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+					<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="2.4">
+						<defs>
+							<style>.a,.b,.c{fill:none;stroke:currentcolor;}.a,.c{stroke-linecap:round;}.a{stroke-linejoin:round;}.b,.c{stroke-miterlimit:5.052;}</style>
+						</defs>
+						<circle class="a" cx="39.3933" cy="14.7656" r="4.1063"></circle>
+						<path class="a" d="M4.5,15.2945A4.6346,4.6346,0,0,1,9.135,10.66c2.56,0,3.2261,1.2715,4.0015,2.2487L22.229,24.5861"></path>
+						<path class="a" d="M32.8082,32.7058a4.6345,4.6345,0,1,1-9.269,0"></path>
+						<path class="b" d="M4.5,32.7058V15.2934"></path>
+						<path class="a" d="M14.9913,29.7256,13.7691,28.153v4.5531a4.6346,4.6346,0,0,1-9.2691,0"></path>
+						<path class="a" d="M23.54,32.7058V28.1527l-1.2222,1.5727"></path>
+						<path class="a" d="M8.2378,21.0358,13.77,28.1533"></path>
+						<path class="a" d="M23.54,28.1528l5.6048-7.2243"></path><path class="b" d="M14.9913,29.7256s3.3789,4.8348,7.3256,0"></path>
+						<path class="c" d="M8.27,21.0684c-1.5478-1.93-3.46-.7345-3.7609,1.0781"></path>
+						<path class="c" d="M22.23,24.5859c1.4448,1.67,3.2924,1.1495,4.3789-.3829"></path>
+						<path class="c" d="M29.1444,20.9283a2.0456,2.0456,0,0,1,3.6526.3295"></path>
+						<path class="c" d="M16.5167,17.2212c1.4276,1.8926,2.8478,1.9305,4.3507.0584l3.5432-4.5832c.6881-.8126,1.2038-2.0367,3.7633-2.0367a4.6346,4.6346,0,0,1,4.6346,4.6345V32.7067"></path>
+						<path class="b" d="M39.3923,20.646a4.1055,4.1055,0,0,0-4.1059,4.1059v8.4829a4.1068,4.1068,0,0,0,8.2136,0V24.7519A4.1071,4.1071,0,0,0,39.3923,20.646Z"></path>
+					</g>
+					<g id="SVGRepo_iconCarrier">
+						<defs>
+							<style>.a,.b,.c{fill:none;stroke:currentcolor;}.a,.c{stroke-linecap:round;}.a{stroke-linejoin:round;}.b,.c{stroke-miterlimit:5.052;}</style>
+						</defs>
+						<circle class="a" cx="39.3933" cy="14.7656" r="4.1063"></circle>
+						<path class="a" d="M4.5,15.2945A4.6346,4.6346,0,0,1,9.135,10.66c2.56,0,3.2261,1.2715,4.0015,2.2487L22.229,24.5861"></path>
+						<path class="a" d="M32.8082,32.7058a4.6345,4.6345,0,1,1-9.269,0"></path><path class="b" d="M4.5,32.7058V15.2934"></path>
+						<path class="a" d="M14.9913,29.7256,13.7691,28.153v4.5531a4.6346,4.6346,0,0,1-9.2691,0"></path>
+						<path class="a" d="M23.54,32.7058V28.1527l-1.2222,1.5727"></path>
+						<path class="a" d="M8.2378,21.0358,13.77,28.1533"></path>
+						<path class="a" d="M23.54,28.1528l5.6048-7.2243"></path>
+						<path class="b" d="M14.9913,29.7256s3.3789,4.8348,7.3256,0"></path>
+						<path class="c" d="M8.27,21.0684c-1.5478-1.93-3.46-.7345-3.7609,1.0781"></path>
+						<path class="c" d="M22.23,24.5859c1.4448,1.67,3.2924,1.1495,4.3789-.3829"></path>
+						<path class="c" d="M29.1444,20.9283a2.0456,2.0456,0,0,1,3.6526.3295"></path>
+						<path class="c" d="M16.5167,17.2212c1.4276,1.8926,2.8478,1.9305,4.3507.0584l3.5432-4.5832c.6881-.8126,1.2038-2.0367,3.7633-2.0367a4.6346,4.6346,0,0,1,4.6346,4.6345V32.7067"></path>
+						<path class="b" d="M39.3923,20.646a4.1055,4.1055,0,0,0-4.1059,4.1059v8.4829a4.1068,4.1068,0,0,0,8.2136,0V24.7519A4.1071,4.1071,0,0,0,39.3923,20.646Z"></path>
+					</g>
+				</svg>
+				<a href="https://misskey.io/@helkun" class="underline text-blue-500 dark:text-blue-400" target="_blank">@helkun</a> 
+			</section>
+
+			<p>相互リンクは<a href="./links" class="underline text-blue-500 dark:text-blue-400">Linksページ</a>にあります</p>
+		</div>
+	</div>
 </BaseLayout>
+
+<style>
+	.box{
+		@apply my-4 p-4 rounded-xl bg-slate-300 dark:bg-slate-700;
+		h2{
+			@apply border-b-4 border-b-yellow-400 inline-block mb-1;
+		}
+		svg{
+			@apply mx-1;
+		}
+	}
+</style>
