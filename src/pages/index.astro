@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import BlogPostCard from '@/components/blog/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
 
 const latestpost = (await getCollection('blog')).sort(
@@ -130,15 +129,3 @@ const latestpost = (await getCollection('blog')).sort(
 		</div>
 	</div>
 </BaseLayout>
-
-<style>
-	.box{
-		@apply my-4 p-4 rounded-xl bg-slate-300 dark:bg-slate-700;
-		h2{
-			@apply border-b-4 border-b-yellow-400 inline-block mb-1;
-		}
-		svg{
-			@apply mx-1;
-		}
-	}
-</style>

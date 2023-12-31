@@ -1,0 +1,28 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LinkCard from '@/components/links/LinkCard.astro';
+---
+<BaseLayout SITE_TITLE = "相互リンク - へる破壊財団" SITE_DESCRIPTION="へるくんの個人サイト">
+    <h1 class="font-bold text-4xl mb-4">相互リンク</h1>
+    <p><strike>オタク</strike> 知り合い各位のWebサイトです。悲しいことに、片想いリンクもあります。</p>
+
+    <h2 class="border-b-4 border-b-yellow-400 inline-block my-1">音楽関連</h2>
+    <div class="flex flex-wrap items-stretch">
+        <LinkCard siteUrl="https://msb-net.com/" siteName="東方風ラボ" twitterUrl="https://twitter.com/maceknight" name="めいす" description="東方風に関する情報いっぱい" />
+        <LinkCard siteUrl="https://www.alicemagic.jp/" siteName="夢想夏月郷" twitterUrl="https://twitter.com/mazyu_aratame" name="翡翠" description="翡翠さんのサークルHP" />
+        
+    </div>
+
+    <h2 class="border-b-4 border-b-yellow-400 inline-block my-1">大学の知り合い</h2>
+    <div class="flex flex-wrap items-stretch">
+        <LinkCard siteUrl="https://yuino.dev" siteName="ゆいのぺーじ" twitterUrl="https://twitter.com/yui__yuuki" name="ゆいくん" description="ダジャレ生成AI" />
+        <LinkCard siteUrl="https://sushichan.live" siteName="すしのへや" twitterUrl="https://twitter.com/sushi_chan_sub" name="すし" description="チャンス！！！" />
+        <LinkCard siteUrl="https://trpfrog.net" siteName="つまみネット" twitterUrl="https://twitter.com/TrpFrog" name="つまみ" description="徒歩部名誉部長" />
+        <LinkCard siteUrl="https://mocchan.dev" siteName="もちもちのめも" twitterUrl="https://twitter.com/sakuramochi0708" name="もっちゃん" description="過労死寸前狐の限界部屋" />
+        <LinkCard siteUrl="https://elmer9.github.io/" siteName="りんりん" twitterUrl="https://twitter.com/elmer_ni9" name="<strike>りんりん</strike> elmer" description="りんりんファンサイト" />
+        <LinkCard siteUrl="https://lnln.dev" siteName="りんりん" twitterUrl="https://twitter.com/lnln_ch" name="りんりん" description="ほんもの" />
+        <LinkCard siteUrl="https://azukibar.dev/" siteName="アイスの棒" twitterUrl="https://twitter.com/azukibar_D" name="あずきバー" description="22年度工学研究部長" />
+        <LinkCard siteUrl="https://www.hutinoatari.dev/" siteName="捻れたバベル" twitterUrl="https://twitter.com/hutinoatari" name="淵野アタリ" description="うどんフルスクラッチ芸人" />
+        <LinkCard siteUrl="https://wasab-wasako.github.io/shigure/" siteName="しぐれ(仮)" twitterUrl="https://twitter.com/shigure_uec" name="しぐれ" description="工事中" />
+    </div>
+</BaseLayout>

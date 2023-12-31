@@ -33,4 +33,17 @@
     p {
         @apply sm:text-lg;
     }
+
+    .button{
+        @apply inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg;
+    }
+    .box{
+		@apply my-4 p-4 rounded-xl bg-slate-300 dark:bg-slate-700;
+		h2{
+			@apply border-b-4 border-b-yellow-400 inline-block mb-1;
+		}
+		svg{
+			@apply mx-1;
+		}
+	}
 }

@@ -1,0 +1,8 @@
+---
+const {siteUrl, siteName, twitterUrl, name, description} = Astro.props;
+---
+<div class="box sm:w-[calc(33%_-_1rem)] w-full text-center mx-2">
+    <button class="button" onclick={`window.open('${siteUrl}', '_blank')`}>{siteName}</button>
+    <p class="mt-2"><a class="underline text-blue-500 dark:text-blue-400" href={twitterUrl} target="blank" set:html={name}/>さんのサイト</p>
+    <p class="mt-2 dark:text-slate-300 text-slate-700">{description}</p>
+</div>
