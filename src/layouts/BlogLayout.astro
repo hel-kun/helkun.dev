@@ -41,6 +41,15 @@ const { title, description, tags, date, heroImage } = Astro.props;
 		a{
 			@apply underline text-blue-500 dark:text-blue-400;
 		}
+		ul{
+			@apply list-disc mx-8;
+			ul{
+				@apply list-circle my-0;
+				ul{
+					@apply list-square;
+				}
+			}
+		}
 		figure{
 			@apply my-4;
 			img{
@@ -64,7 +73,7 @@ const { title, description, tags, date, heroImage } = Astro.props;
 				@apply block no-underline max-w-sm max-h-min mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500 dark:hover:shadow-slate-400;
 			}
 			img{
-				@apply h-32 w-full object-cover sm:w-48 border-black dark:border-white sm:border-r-2 smax:border-b-2 mx-0 sm:rounded-l-xl smax:rounded-t-xl;
+				@apply w-full sm:w-[180px] h-[150px] object-cover border-black dark:border-white sm:border-r-2 smax:border-b-2 mx-0 sm:rounded-l-xl smax:rounded-t-xl;
 			}
 			.title{ 
 				@apply block mt-1 text-xl leading-tight font-bold text-black dark:text-white;

@@ -17,6 +17,11 @@ export default {
           dark: '#f5f7fc',
         },
       },
+      listStyleType: {
+        circle: 'circle',
+        square: 'square',
+        roman: 'upper-roman',
+      },
       screens: {
         x3lmax: { max: "2550px" },
         // => @media (max-width: 1535px) { ... }

@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
-    "@astrojs/mdx": "^2.0.1",
+    "@astrojs/mdx": "^2.0.3",
     "@astrojs/tailwind": "^5.0.4",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
-    "astro": "^4.0.7",
+    "astro": "^4.0.8",
+    "astro-auto-import": "^0.4.2",
     "fetch-site-metadata": "^0.2.0",
     "typescript": "^5.3.3"
   },

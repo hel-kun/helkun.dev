@@ -17,11 +17,15 @@ const metadata=match.reduce(
 ---
 <div class="urlCard">
   <a href={url} target="_blank">
-      <div class="sm:flex">
-        <img src={metadata["image"]||"https://helkun.dev/no-image.svg"} alt={metadata["description"]}>
-        <div class="p-8">
-          <p class="title">{metadata["title"].length > 20 ? metadata["title"].substring(0, 20) + "…" : metadata["title"]}</p>
-          <p class="description">{metadata["description"].length > 50 ? metadata["description"].substring(0, 50) + "…" : metadata["description"]}</p>
+      <div class="sm:flex flex-col sm:flex-row flex-nowrap items-center">
+        <div class="w-full sm:w-[150px] h-[150px] overflow-hidden">
+          <img src={metadata["image"]||"https://helkun.dev/no-image.svg"} alt={metadata["description"]}>
+        </div>
+        <div class="p-4">
+          <p class="title">{metadata["title"]}</p>
+          <p class="description">
+            {metadata["description"].length > 30 ? metadata["description"].substring(0, 30) + "…" : metadata["description"]}
+          </p>
         </div>
       </div>
   </a>
