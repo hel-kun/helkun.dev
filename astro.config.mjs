@@ -11,6 +11,7 @@ const mdxIntegrations = [
       "./src/components/blog/ImgCard.astro",
       "./src/components/blog/Blockquote.astro",
       "./src/components/blog/Box.astro",
+      "./src/components/blog/WarningBox.astro",
     ],
   }),
   mdx(),
