@@ -1,0 +1,10 @@
+[
+    {
+        "title": "光のスペクトルの不確かさを求めます!!",
+        "image": "https://old.helkun.dev/works/fig/LigthSpectrum.png",
+        "date": "2022-10-02",
+        "description": "電通大の1年必修科目として、多数の電通大生を苦しめている基礎科学実験Aの「光のスペクトル」という実験分野の不確かさを求めてくれるサイト。D棟爆破機能も兼ね備えている。(D棟とは、電気通信大学にある実験棟のこと。)",
+        "github": "https://github.com/hel-kun/light_spectrum",
+        "siteUrl": "https://hel-kun.github.io/light_spectrum/"
+    }
+]
