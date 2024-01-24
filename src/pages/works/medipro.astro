@@ -1,0 +1,48 @@
+---
+import MediproLayout from "@/layouts/MediproLayout.astro"
+---
+<MediproLayout>
+    <header class="fixed w-full">
+        <div class="w-full bg-black text-white py-4 shadow-lg shadow-zinc-600">
+            <nav class="container mx-auto px-6 py-2 flex flex-wrap items-center justify-between">
+                <h1 class="sm:text-4xl text-2xl font-bold order-first ">実験棟出口</h1>
+                <div class="order-last items-center flex sm:text-2xl text-xl">
+                    <a class="inline-block m-0 mr-6 hover:bg-gray-800 px-2 rounded-lg" href="https://github.com/eva828Dev/MediPro">Github</a>
+                    <a class="inline-block m-0 hover:bg-gray-800 px-2 rounded-lg" href="https://eva828dev.github.io/MediPro/javadoc/">Javadoc</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="mt-24">
+        <div class="text-center">
+            <img class="block mx-auto my-0 rounded-xl" src="https://helkun.dev/image/medipro/gameInfo.png" alt="heroImage"/>
+            <h1 class="font-bold text-6xl smax:text-4xl text-center mb-4">実験棟出口</h1>
+            <a class="button text-3xl my-2 smax:text-2xl shadow-md shadow-indigo-400 dark:shadow-indigo-700" href="#" download>Windows / MacOS / Linux</a>
+            <h2 class="smax:text-2xl">Download latest release (beta 1)</h2>
+        </div>
+        <div class="box">
+            <h2>これは何？</h2>
+            <p>大学のメディア情報学プログラミング演習のグループプログラミングで制作したゲームです。</p>
+        </div>
+        <div class="box">
+            <h2>Q&A</h2>
+            <section class="m-4">
+                <h3>操作方法は？</h3>
+                <p>
+                    <a class="underline text-blue-500 dark:text-blue-400" href="#" download>このPDF</a>をダンロードしてください。
+                </p>
+            </section>
+            <section class="m-4">
+                <h3>バグ見つけました！</h3>
+                <p>Githubのissueに投げておいてください。メンバーの誰かが気が向いたら直すと思います。</p>
+            </section>
+            <section class="m-4">
+                <h3>こんな要素欲しい！</h3>
+                <p>Githubのissueに投げておいてください。メンバーの誰かが気が向いたら実装すると思います。</p>
+            </section>
+        </div>
+    </main>
+    <footer class="text-center mt-4 p-4 bg-zinc-300 dark:bg-zinc-500">
+        <p>&copy; 2024 D棟爆破財団. All rights reserved.</p>
+    </footer>
+</MediproLayout>
