@@ -3,7 +3,7 @@ import MediproLayout from "@/layouts/MediproLayout.astro"
 ---
 <MediproLayout>
     <header class="fixed w-full">
-        <div class="w-full bg-black text-white py-4">
+        <div class="w-full bg-black text-white py-4 shadow-lg shadow-zinc-600">
             <nav class="container mx-auto px-6 py-2 flex flex-wrap items-center justify-between">
                 <h1 class="sm:text-4xl text-2xl font-bold order-first ">作品名</h1>
                 <div class="order-last items-center flex sm:text-2xl text-xl">
@@ -13,10 +13,10 @@ import MediproLayout from "@/layouts/MediproLayout.astro"
             </nav>
         </div>
     </header>
-    <main class="mt-20">
+    <main class="mt-24">
         <div class="text-center">
             <h1 class="font-bold text-6xl smax:text-4xl text-center mb-4">作品名</h1>
-            <a class="button text-3xl my-2 smax:text-2xl" href="#" download>Windows / MacOS / Linux</a>
+            <a class="button text-3xl my-2 smax:text-2xl shadow-md shadow-indigo-400 dark:shadow-indigo-700" href="#" download>Windows / MacOS / Linux</a>
             <h2 class="smax:text-2xl">Download latest release (beta)</h2>
         </div>
         <div class="box">
@@ -28,7 +28,7 @@ import MediproLayout from "@/layouts/MediproLayout.astro"
             <section class="m-4">
                 <h3>操作方法は？</h3>
                 <p>
-                    <a class="underline text-blue-400" href="#" download>このPDF</a>をダンロードしてください。
+                    <a class="underline text-blue-500 dark:text-blue-400" href="#" download>このPDF</a>をダンロードしてください。
                 </p>
             </section>
             <section class="m-4">
