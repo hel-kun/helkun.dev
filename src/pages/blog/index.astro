@@ -16,7 +16,7 @@ const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
 		{
 			tags.map((tag) => (
 				<p class="mx-1">
-					<a href={`/blog/tags/${tag}`} class="underline hover:text-blue-500 hover:dark:text-blue-400">#{tag}<a/>
+					<a href={`/blog/tags/${tag}`} class="underline hover:text-blue-500 hover:dark:text-blue-400">#{tag}</a>
 				</p>
 			))
 		}
