@@ -29,13 +29,8 @@ import MediproLayout from "@/layouts/MediproLayout.astro"
         <div class="box">
             <h2>実行方法</h2>
             <p>ダウンロードしたファイルを解凍したら、2つのjarファイルがあるディレクトリ上で</p>
-            <pre><code>java -cp 'jogamp-fat.jar:app.jar' medipro.Main</code></pre>
-            <p>というコマンドを実行したら多分動きます。Windowsの人は</p>
-            <pre><code>java -cp 'jogamp-fat.jar;app.jar' medipro.Main</code></pre>
-            <p>
-                というコマンドを実行してください。<br/> 
-                あと、なんかclassのバージョン違いで実行できない人も出てくると思いますが、とりあえずは対応しているバージョン(最新バージョン入れればとりあえず動くはず)のJavaを頑張って入れて実行してくれメンス...
-            </p>
+            <pre><code>java -jar app.jar</code></pre>
+            <p>というコマンドを実行したら多分動きます。</p>
         </div>
         <div class="box">
             <h2>Q&A</h2>

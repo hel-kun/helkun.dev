@@ -2,9 +2,44 @@
     {
         "title": "光のスペクトルの不確かさを求めます!!",
         "image": "https://old.helkun.dev/works/fig/LigthSpectrum.png",
-        "date": "2022-10-02",
+        "date": "2022-10",
         "description": "電通大の1年必修科目として、多数の電通大生を苦しめている基礎科学実験Aの「光のスペクトル」という実験分野の不確かさを求めてくれるサイト。D棟爆破機能も兼ね備えている。(D棟とは、電気通信大学にある実験棟のこと。)",
         "github": "https://github.com/hel-kun/light_spectrum",
         "siteUrl": "https://hel-kun.github.io/light_spectrum/"
+    },
+    {
+        "title": "キウイオイシカッタ & チョウフスミズルイ",
+        "image": "",
+        "date": "2022-11",
+        "description": "工学研究部で調布機械競馬が開催されたので、タミヤのメカダービーという製品を階層して作った馬のロボット。"
+    },
+    {
+        "title": "SAOのリンクスタート時に流れる動画",
+        "image": "https://twitter.com/i/status/1625148651898294273",
+        "date": "2023-01",
+        "description": "大学の「基礎プログラミング及び演習」で3人で作ったgif画像。"
+    },
+    {
+        "title": "個人サイト(初代)",
+        "image": "",
+        "date": "2023-06",
+        "description": "授業中の1時間半で作った初代個人サイト。当初はたくさんページを生やすことを想定していなかったので設計がクソで、ページを生やすたびに毎回キレていた。",
+        "github": "https://github.com/hel-kun/old.helkun.dev",
+        "siteUrl": "https://old.helkun.dev"
+    },
+    {
+        "title": "HelReverb",
+        "image": "https://old.helkun.dev/works/fig/HelReverb.png",
+        "date": "2023-10",
+        "description": "円安が加速している関係でDTMで使用するソフト音源やプラグインが値上っておりキレたので、自作した。",
+        "github": "https://github.com/hel-kun/HelReverb"
+    },
+    {
+        "title": "実験棟出口(仮)",
+        "image": "https://helkun.dev/image/medipro/gameImage.png",
+        "date": "2024-01",
+        "description": "大学の「メディア情報学プログラミング演習」の授業のグループプログラミングで制作したゲーム。",
+        "github": "https://github.com/eva828Dev/MediPro",
+        "siteUrl": "https://helkun.dev/works/medipro/"
     }
 ]
