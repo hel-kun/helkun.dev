@@ -3,7 +3,7 @@ const {title,image,date,description,github = "",siteUrl=""} = Astro.props;
 ---
 <div class="box sm:w-[calc(50%_-_1rem)] w-full mx-2 p-4">
     <h2 class="text-center w-full">{title}</h2>
-    <img class="px-2 py-2 rounded-lg " src={image}/>
+    <img class="rounded-lg max-h-96 mx-auto my-2" src={image}/>
     <time class="mx-2 mt-0 mb-1" datetime={date}>制作日：{date}</time>
     <p>{description}</p>
     <p class="text-center">
