@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import WarningBox from '@/components/blog/WarningBox.astro';
 import WorkCard from '@/components/works/WorkCard.astro';
 
 import WorksData from '@/pages/works/worksData.json';
@@ -17,9 +16,6 @@ WorksData.sort(
 ---
 <BaseLayout>
     <h1 class="font-bold text-4xl mb-4">Works</h1>
-    <WarningBox>
-        このページは工事中です。実装までしばらくお待ちください。
-    </WarningBox>
     <p>へるくんの制作物一覧です。</p>
     <div class="flex flex-wrap items-stretch">
         {WorksData.map((data) => 
