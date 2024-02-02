@@ -9,7 +9,7 @@
     },
     {
         "title": "キウイオイシカッタ & チョウフスミズルイ",
-        "image": "",
+        "image": "https://helkun.dev/image/works/uma.jpg",
         "date": "2022-11",
         "description": "工学研究部で調布機械競馬が開催されたので、タミヤのメカダービーという製品を階層して作った馬のロボット。"
     },
@@ -17,13 +17,13 @@
         "title": "SAOのリンクスタート時に流れる動画",
         "image": "https://twitter.com/i/status/1625148651898294273",
         "date": "2023-01",
-        "description": "大学の「基礎プログラミング及び演習」で3人で作ったgif画像。"
+        "description": "大学の「基礎プログラミング及び演習」の授業でevaとゆきゃの3人で作ったgif画像。"
     },
     {
         "title": "個人サイト(初代)",
         "image": "",
         "date": "2023-06",
-        "description": "授業中の1時間半で作った初代個人サイト。当初はたくさんページを生やすことを想定していなかったので設計がクソで、ページを生やすたびに毎回キレていた。",
+        "description": "急に個人サイトを作りたくなったので、何かの授業中に内職して1時間半で作った初代個人サイト。当初はたくさんページを生やすことを想定していなかったので設計がクソで、ページを生やすたびに毎回キレていた。htmlとcssのみで作成されており、java scriptは使用していない。",
         "github": "https://github.com/hel-kun/old.helkun.dev",
         "siteUrl": "https://old.helkun.dev"
     },
@@ -38,7 +38,7 @@
         "title": "実験棟出口(仮)",
         "image": "https://helkun.dev/image/medipro/gameImage.png",
         "date": "2024-01",
-        "description": "大学の「メディア情報学プログラミング演習」の授業のグループプログラミングで制作したゲーム。",
+        "description": "大学の「メディア情報学プログラミング演習」の授業のグループプログラミングで制作したゲーム。evaとkyoの3人で制作した。",
         "github": "https://github.com/eva828Dev/MediPro",
         "siteUrl": "https://helkun.dev/works/medipro/"
     }
