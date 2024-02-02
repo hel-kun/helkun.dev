@@ -8,6 +8,12 @@
         "siteUrl": "https://hel-kun.github.io/light_spectrum/"
     },
     {
+        "title": "単位之墓",
+        "image": "https://helkun.dev/image/works/TaniNoHaka.png",
+        "date": "2022-12",
+        "description": "単位を落としている電通大生が多すぎるので落単した単位を供養できるように作ったゲーミング単位之墓。なお、私は今のところフル単である。"
+    },
+    {
         "title": "キウイオイシカッタ & チョウフスミズルイ",
         "image": "https://helkun.dev/image/works/uma.jpg",
         "date": "2022-11",
@@ -21,7 +27,7 @@
     },
     {
         "title": "個人サイト(初代)",
-        "image": "",
+        "image": "https://helkun.dev/image/works/old_helkun_dev.png",
         "date": "2023-06",
         "description": "急に個人サイトを作りたくなったので、何かの授業中に内職して1時間半で作った初代個人サイト。当初はたくさんページを生やすことを想定していなかったので設計がクソで、ページを生やすたびに毎回キレていた。htmlとcssのみで作成されており、java scriptは使用していない。",
         "github": "https://github.com/hel-kun/old.helkun.dev",
@@ -33,6 +39,14 @@
         "date": "2023-10",
         "description": "円安が加速している関係でDTMで使用するソフト音源やプラグインが値上っておりキレたので、自作した。",
         "github": "https://github.com/hel-kun/HelReverb"
+    },
+    {
+        "title": "個人サイト(2代目)",
+        "image": "https://helkun.dev/image/works/helkun_dev.png",
+        "date": "2023-12",
+        "description": "このサイトである。初代個人サイトの反省を踏まえて設計をちゃんとした。Astroとtailwindcssを使用して作っている。",
+        "github": "https://github.com/hel-kun/helkun.dev",
+        "siteUrl": "https://helkun.dev"
     },
     {
         "title": "実験棟出口(仮)",
