@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 import Twitter from '@/components/svg/Twitter.astro';
 import Youtube from '@/components/svg/Youtube.astro';
-import Github_sns from '@/components/svg/Github_sns.astro';
+import Github from '@/components/svg/Github.astro';
 import Misskey from '@/components/svg/Miskey.astro';
 import Bluesky from '@/components/svg/Bluesky.astro';
 
@@ -85,13 +85,17 @@ const latestpost = (await getCollection('blog')).sort(
 			</section>
 
 			<section class="flex items-center my-2">
-				<Github_sns/>
+				<Github/>
 				<a href="https://github.com/hel-kun" class="underline text-blue-500 dark:text-blue-400" target="_blank">helkun</a> 
 			</section>
 
 			<section class="flex items-center my-2">
 				<Bluesky/>
-				<a href="https://bsky.app/profile/helkun.dev" class="underline text-blue-500 dark:text-blue-400" target="_blank">@helkun.dev</a>
+				<p>
+					<a href="https://bsky.helkun.dev" class="underline text-blue-500 dark:text-blue-400" target="_blank">@helkun.dev</a> (メイン)
+					<br/>
+					<a href="https://bsky.sub.helkun.dev" class="underline text-blue-500 dark:text-blue-400" target="_blank">@sub.helkun.dev</a> (サブ)
+				</p>
 			</section>
 
 			<section class="flex items-center my-2">
