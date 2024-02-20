@@ -50,10 +50,10 @@
     },
     {
         "title": "実験棟出口(仮)",
-        "image": "https://helkun.dev/image/medipro/gameImage.png",
+        "image": "https://medipro.helkun.dev/image/gameImage.png",
         "date": "2024-01",
         "description": "大学の「メディア情報学プログラミング演習」の授業のグループプログラミングで制作したゲーム。evaとkyoの3人で制作した。",
         "github": "https://github.com/eva828Dev/MediPro",
-        "siteUrl": "https://helkun.dev/works/medipro/"
+        "siteUrl": "https://medipro.helkun.dev/"
     }
 ]
