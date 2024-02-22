@@ -21,4 +21,7 @@ const mdxIntegrations = [
 // https://astro.build/config
 export default defineConfig({
   integrations: [...mdxIntegrations, tailwind()],
+  markdown: {
+    shikiConfig: { theme: 'dark-plus' },
+  },
 });
