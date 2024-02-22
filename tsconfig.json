@@ -1,7 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "/Users/haruto/Documents/github/helkun.dev",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
@@ -13,7 +15,5 @@
         "./*"
       ]
     },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
   }
 }
