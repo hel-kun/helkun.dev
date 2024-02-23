@@ -16,8 +16,8 @@ import Logo from '@/components/svg/Logo.astro';
         }); 
     });
     window.addEventListener('click',function(e){
-        if(isOpen){
-            if(!button?.contains(e.target) && !menuContent?.contains(e.target)){
+        if(isOpen && button && menuContent){
+            if(!button.contains(e.target) && !menuContent.contains(e.target)){
                 isOpen = !isOpen;
                 button?.classList.toggle("hamburger-button-toggle");
                 menuContent?.classList.toggle("hamburger-content-toggle");
@@ -25,7 +25,7 @@ import Logo from '@/components/svg/Logo.astro';
         }
     });
     window.addEventListener('scroll', function () {
-        if(isOpen){
+        if(isOpen && button && menuContent){
             isOpen = !isOpen;
             button?.classList.toggle("hamburger-button-toggle");
             menuContent?.classList.toggle("hamburger-content-toggle");
