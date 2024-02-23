@@ -5,14 +5,31 @@ import HamburgerMenuContent from '@/components/navigation/HamburgerMenuContent.a
 import Logo from '@/components/svg/Logo.astro';
 ---
 <script>
+    let isOpen = false;
+    const button = document.querySelector('#menuButton');
+    const menuContent = document.querySelector('#menuContent');
     document.addEventListener('DOMContentLoaded', function () {
-        const button = document.querySelector('#menuButton');
-        const menuContent = document.querySelector('#menuContent');
-
         button?.addEventListener('click', function(){
-            button.classList.toggle("hamburger-button-toggle");
+            isOpen = !isOpen;
+            button?.classList.toggle("hamburger-button-toggle");
             menuContent?.classList.toggle("hamburger-content-toggle");
         }); 
+    });
+    window.addEventListener('click',function(e){
+        if(isOpen){
+            if(!button?.contains(e.target) && !menuContent?.contains(e.target)){
+                isOpen = !isOpen;
+                button?.classList.toggle("hamburger-button-toggle");
+                menuContent?.classList.toggle("hamburger-content-toggle");
+            }
+        }
+    });
+    window.addEventListener('scroll', function () {
+        if(isOpen){
+            isOpen = !isOpen;
+            button?.classList.toggle("hamburger-button-toggle");
+            menuContent?.classList.toggle("hamburger-content-toggle");
+        }
     });
 </script>
 
@@ -32,15 +49,15 @@ import Logo from '@/components/svg/Logo.astro';
                 </div>
                 <div>
                     <button id="menuButton" class="flex flex-col justify-center items-center rounded-md w-10 h-10 hover:bg-gray-600">
-                        <span id="before" class="block w-6 h-1 rounded-full bg-white transition-all duration-150 -translate-y-1"></span>
-                        <span id="center" class="block w-6 h-1 rounded-full bg-white transition-all duration-150"></span>
-                        <span id="after" class="block w-6 h-1 rounded-full bg-white transition-all duration-150 translate-y-1"></span>
+                        <span id="before" class="block w-6 h-1 rounded-full bg-white transition-all duration-500 -translate-y-1"></span>
+                        <span id="center" class="block w-6 h-1 rounded-full bg-white transition-all duration-500"></span>
+                        <span id="after" class="block w-6 h-1 rounded-full bg-white transition-all duration-500 translate-y-1"></span>
                     </button>
                 </div>
             </div>
         </nav>
     </div>
-    <div id="menuContent" class="fixed w-1/2 sm:w-1/3 left-full transition-all duration-150 h-screen bg-opacity-90 bg-gray-800 text-white z-50">
+    <div id="menuContent" class="fixed w-1/2 sm:w-1/3 lg:w-1/4 left-full transition-all duration-500 h-screen bg-opacity-90 bg-gray-800 text-white z-50">
         <HamburgerMenuContent/>
     </div>
 </header>
@@ -61,6 +78,6 @@ import Logo from '@/components/svg/Logo.astro';
         }
     }
     .hamburger-content-toggle{
-        @apply left-1/2 sm:left-2/3;
+        @apply left-1/2 sm:left-2/3 lg:left-3/4;
     }
 </style>
