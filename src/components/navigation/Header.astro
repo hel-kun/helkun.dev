@@ -4,35 +4,6 @@ import HamburgerMenuContent from '@/components/navigation/HamburgerMenuContent.a
 
 import Logo from '@/components/svg/Logo.astro';
 ---
-<script>
-    let isOpen = false;
-    const button = document.querySelector('#menuButton');
-    const menuContent = document.querySelector('#menuContent');
-    document.addEventListener('DOMContentLoaded', function () {
-        button?.addEventListener('click', function(){
-            isOpen = !isOpen;
-            button?.classList.toggle("hamburger-button-toggle");
-            menuContent?.classList.toggle("hamburger-content-toggle");
-        }); 
-    });
-    window.addEventListener('click',function(e){
-        if(isOpen && button && menuContent){
-            if(!button.contains(e.target) && !menuContent.contains(e.target)){
-                isOpen = !isOpen;
-                button?.classList.toggle("hamburger-button-toggle");
-                menuContent?.classList.toggle("hamburger-content-toggle");
-            }
-        }
-    });
-    window.addEventListener('scroll', function () {
-        if(isOpen && button && menuContent){
-            isOpen = !isOpen;
-            button?.classList.toggle("hamburger-button-toggle");
-            menuContent?.classList.toggle("hamburger-content-toggle");
-        }
-    });
-</script>
-
 <header class="fixed w-full">
     <div class="w-full bg-gray-800 text-white">
         <nav class="container mx-auto px-6 py-2 flex flex-wrap items-center justify-between">
@@ -81,3 +52,35 @@ import Logo from '@/components/svg/Logo.astro';
         @apply left-1/2 sm:left-2/3 lg:left-3/4;
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let isOpen = false;
+        const button = document.querySelector('#menuButton');
+        const menuContent = document.querySelector('#menuContent');
+        button?.addEventListener('click', function(){
+            isOpen = !isOpen;
+            button.classList.toggle("hamburger-button-toggle");
+            menuContent?.classList.toggle("hamburger-content-toggle");
+        });
+        this.addEventListener('click',function(e){
+            if(isOpen && button && menuContent){
+                const target = e.target;
+                if(target instanceof Node){
+                    if(!button.contains(target) && !menuContent.contains(target)){
+                        isOpen = !isOpen;
+                        button.classList.toggle("hamburger-button-toggle");
+                        menuContent.classList.toggle("hamburger-content-toggle");
+                    }
+                }
+            }
+        });
+        this.addEventListener('scroll', function(){
+            if(isOpen && button && menuContent){
+                isOpen = !isOpen;
+                button.classList.toggle("hamburger-button-toggle");
+                menuContent.classList.toggle("hamburger-content-toggle");
+            }
+        });
+    });
+</script>
