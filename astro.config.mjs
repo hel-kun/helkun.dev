@@ -4,7 +4,7 @@ import tailwind from "@astrojs/tailwind";
 import AutoImport from "astro-auto-import";
 import react from "@astrojs/react";
 const mdxIntegrations = [AutoImport({
-  imports: ["./src/components/blog/card/UrlCard.astro", "./src/components/blog/card/TwitterCard.astro", "./src/components/blog/card/ImgCard.astro", "./src/components/blog/Blockquote.astro", "./src/components/blog/Box.astro", "./src/components/blog/WarningBox.astro", "./src/components/blog/YoutubePlayer.astro"]
+  imports: ["./src/components/blog/card/UrlCard.astro", "./src/components/blog/card/TwitterCard.astro", "./src/components/blog/card/ImgCard.astro", "./src/components/blog/Blockquote.astro", "./src/components/blog/Box.astro", "./src/components/blog/WarningBox.astro", "./src/components/ui/YoutubePlayer.astro"]
 }), mdx()];
 
 
