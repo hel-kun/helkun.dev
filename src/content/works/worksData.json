@@ -1,5 +1,12 @@
 [
     {
+        "title": "PalServerDiscordBot",
+        "image": "https://helkun.dev/image/works/PalServerDiscordBot.png",
+        "date": "2024-03",
+        "description": "PalWorldサーバーを自分で建てているのだが、サーバーを落としたりする際に自分でDiscordで通知するのが面倒だったので作った。Pythonを初めて触った作品。",
+        "github": "https://github.com/hel-kun/PalServerDiscordBot"
+    },
+    {
         "title": "光のスペクトルの不確かさを求めます!!",
         "image": "https://old.helkun.dev/works/fig/LigthSpectrum.png",
         "date": "2022-10",
@@ -11,7 +18,7 @@
         "title": "単位之墓",
         "image": "https://helkun.dev/image/works/TaniNoHaka.png",
         "date": "2022-12",
-        "description": "単位を落としている電通大生が多すぎるので落単した単位を供養できるように作ったゲーミング単位之墓。なお、私は今のところフル単である。"
+        "description": "単位を落としている電通大生が多すぎるので落単した単位を供養できるように作ったゲーミング単位之墓。モデリングは私が行い、回路はりんりんさんが作ってくれた。なお、私は今のところフル単である。"
     },
     {
         "title": "キウイオイシカッタ & チョウフスミズルイ",
@@ -23,7 +30,7 @@
         "title": "SAOのリンクスタート時に流れる動画",
         "image": "https://helkun.dev/image/works/kisopuro.gif",
         "date": "2023-01",
-        "description": "大学の「基礎プログラミング及び演習」の授業でevaとゆきゃの3人で作ったgif画像。確かC言語で作ったはず。ソースコードは消えました...。"
+        "description": "大学の「基礎プログラミング及び演習」の授業でevaとゆきゃの3人で作ったgif画像。確かC言語で作ったはず。ソースコードは消えた...。"
     },
     {
         "title": "個人サイト(初代)",
@@ -37,7 +44,7 @@
         "title": "HelReverb",
         "image": "https://old.helkun.dev/works/fig/HelReverb.png",
         "date": "2023-10",
-        "description": "円安が加速している関係でDTMで使用するソフト音源やプラグインが値上っておりキレたので、自作した。",
+        "description": "円安が加速している関係でDTMで使用するソフト音源やプラグインが値上っておりキレたので、自作した。JUCEライブラリを使用してC++で作った。",
         "github": "https://github.com/hel-kun/HelReverb"
     },
     {
@@ -52,7 +59,7 @@
         "title": "実験棟出口(仮)",
         "image": "https://medipro.helkun.dev/image/gameImage.png",
         "date": "2024-01",
-        "description": "大学の「メディア情報学プログラミング演習」の授業のグループプログラミングで制作したゲーム。evaとkyoの3人で制作した。",
+        "description": "大学の「メディア情報学プログラミング演習」の授業のグループプログラミングで制作したゲーム。evaとkyoの3人で制作した。Java製である。",
         "github": "https://github.com/eva828Dev/MediPro",
         "siteUrl": "https://medipro.helkun.dev/"
     }
