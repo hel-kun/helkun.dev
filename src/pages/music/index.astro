@@ -1,0 +1,32 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import YoutubePlayer from '@/components/ui/YoutubePlayer.astro';
+import fetch from 'node-fetch';
+import type { YoutubeApiResponse } from '@/api/YoutubeApiType';
+
+const API_KEY = "AIzaSyC26UKfNgUgFatj670kS8uUiDBPwiFmAE0";
+const CHANNEL_ID = "UCWMPYOL2HLrPhytxXaXX3yg";
+
+const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=6`);
+const data = (await response.json() as any) as YoutubeApiResponse;
+const videos = data.items.map(item => {
+    return {
+        videoId: item.id.videoId,
+    };
+});
+---
+<BaseLayout>
+    <h1 class="font-bold text-4xl mb-4">Music</h1>
+    <p>へるくんの制作した音楽です。</p>
+
+
+    <div class="box">
+        <h2>YouTube</h2>
+        <p>YouTubeにあげた最新6つの動画です。(YouTube Data API v3を使って自動取得しているのでバグってたらすいません)</p>
+        <section>
+            {videos.map(video => (
+                <YoutubePlayer videoId={video.videoId} />
+            ))}
+        </section>
+    </div>
+</BaseLayout>
