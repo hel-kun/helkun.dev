@@ -37,7 +37,9 @@ export const components = {blockquote: Blockquote};
 <ImgCard title="こんな警告も無視して開きます" url="https://helkun.dev/image/blog/sd90-driver/warning.png" alt="警告画面" />
 
 さて、このinfファイルの中身を見てみると、このように書かれている場所があると思います。
-```inf
+```txt title="RDIF1016.INF"
+;---------------------------------------------------------------;
+
 [Manufacturer]
 %MfgName%=Roland,NTamd64.6.2,NTamd64.7
 
@@ -55,11 +57,13 @@ export const components = {blockquote: Blockquote};
 [Roland.NTamd64.7]
 ;; not supported
 
-;
+;===============================================================;
 ```
 
 これを下記のように書き換えます。
-```inf
+```txt title="RDIF1016.INF" del={18} ins={19-24}
+;---------------------------------------------------------------;
+
 [Manufacturer]
 %MfgName%=Roland,NTamd64.6.2,NTamd64.7,NTamd64.10
 
@@ -75,13 +79,15 @@ export const components = {blockquote: Blockquote};
 %RDID0016DeviceDesc%=RDID0016Install, USB\VID_0582&PID_0016 ; SD-90
 
 [Roland.NTamd64.7]
+;; not supported
 ;; Windows10
 %RDID0016DeviceDesc%=RDID0016Install, USB\VID_0582&PID_0016 ; SD-90
 
 [Roland.NTamd64.10]
 ;; Windows11
 %RDID0016DeviceDesc%=RDID0016Install, USB\VID_0582&PID_0016 ; SD-90
-;
+
+;===============================================================;
 ```
 
 これで書き換えは完了です。
