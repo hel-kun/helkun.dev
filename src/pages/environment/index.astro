@@ -1,0 +1,329 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+<BaseLayout>
+  <h1 class="font-bold text-4xl mb-4">作業環境</h1>
+  所持しているデバイスやその他の環境についての情報をまとめています。(写真はいずれ貼ります)
+
+  <div class="box">
+    <h2 class="border-b-4 border-b-yellow-400 inline-block my-1">コンピュータ</h2>
+
+    <section>
+        <h3 class="my-2">メインデスクトップPC</h3>
+        <ul>
+            <li>CPU：intel core i5 13500</li>
+            <li>マザーボード：ASUS TUF GAMING H770-PRO WIFI</li>
+            <li>GPU：ASUS Dual GeForce RTX™ 3060 Ti V2 OC Edition</li>
+            <li>
+                メモリ：16GB×2
+                <ul><li>確かドスパラで売ってたADATAの安いやつ。</li></ul>
+            </li>
+            <li>
+                ストレージ：M.2 SSD 1TB
+                <ul><li>確かキオクシア。</li></ul>
+            </li>
+            <li>電源：Corsair RM750x</li>
+            <li>
+                ファン：虎徹 MARK3
+                <ul><li>さすがにリテールクーラーは冷却に難があったので途中で付け替えた。</li></ul>
+            </li>
+            <li>ケース：DEEPCOOL CH510 WH</li>
+            <li>OS：Windows11 Pro</li>
+            <li>自分で組んだ。組むの楽しかった。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">サーバー用デスクトップPC</h3>
+        <ul>
+            <li>CPU：intel core i7 7700</li>
+            <li>マザーボード：Dellのよくわからないやつ</li>
+            <li>GPU：オンボ</li>
+            <li>
+                メモリ：16GB×2
+                <ul>
+                    <li>これも確かドスパラで売ってたADATAの安いやつ。</li>
+                    <li>PalServerを動かしてからメモリが足りなくなりつつあるので増設したい。</li>
+                </ul>
+            </li>
+            <li>ストレージ：SATA SSD 1TB</li>
+            <li>電源：Dellのよくわからないやつ</li>
+            <li>
+                OS：Windows11 Pro
+                <ul><li>サーバー用途なのにWindows入れてるバカタレ。</li></ul>
+            </li>
+            <li>とある場所で拾ったジャンクのDellの小型デスクトップをちょこっと改造したもの。マイクラサーバーやPalWorldサーバーやDiscordBotを動かしている。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Panasonic Let's note CF-FV</h3>
+        <ul>
+            <li>CPU：intel Core i7 1165G7</li>
+            <li>メモリ：16GB</li>
+            <li>OS：Windows11 Pro</li>
+            <li>大学入学時に親の人に買ってもらったノートパソコン。</li>
+            <li>購入してからまだ2年にもかかわらず、使い古してもう物理的にもソフトウェア的にもボロボロ。</li>
+            <li>WindowsOSの挙動が最近おかしいため、OS再インストールを検討中。</li>
+            <li>そもそも修理に出すことを検討中。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Apple MacBook Pro (15-inch, 2017)</h3>
+        <ul>
+            <li>メモリ：16GB</li>
+            <li>ストレージ：512GB</li>
+            <li>こちらもジャンク品で、とある場所からの拾い物。</li>
+            <li>iPhoneとの相性が良すぎて感動。</li>
+            <li>バッテリーがかなりいかれており、6～7割残っている状態だとなぜかバッテリー0%判定となる。早くバッテリー交換したい(この世代のMBPは自力でできるはず)。</li>
+        </ul>
+    </section>
+  </div>
+
+  <div class="box">
+    <h2 class="border-b-4 border-b-yellow-400 inline-block my-1">デスクトップ周りの音楽・音響関連</h2>
+
+    <section>
+        <h3 class="my-2">EDIROL SD-90</h3>
+        <ul>
+            <li>東方の原曲でよく使われているハードウェア音源。</li>
+            <li>骨董品。ドライバを入れるのも大変。(<a class="underline text-blue-500 dark:text-blue-400" href="https://helkun.dev/blog/sd90-driver/">詳しくはこちら</a>)</li>
+            <li>東方風の曲を作るときは欠かせないので頑張って使っている。</li>
+            <li>一度ばらばらに分解してコンデンサ換装大会を行っている。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Steinberg UR22C</h3>
+        <ul>
+            <li>オーディオインターフェース。</li>
+            <li>SD-90にもオーディオインターフェース機能はあるが、ドライバを無理やり入れたらその機能がお亡くなりになったため、このUR22Cを導入した。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Roland A-49</h3>
+        <ul>
+            <li>Midiキーボード。48鍵盤。</li>
+            <li>ピアノは弾けなくても、曲を作る際にこれがあることで作曲のQOLが爆上がりした。</li>
+            <li>
+                1つ前に使っていた謎のメーカーのMidiキーボードが壊れたため新たに導入。
+                <ul><li>壊れたMidiキーボードは自力で修理したのち、しぐれに譲渡したはず。</li></ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">SHURE SRH440A</h3>
+        <ul>
+            <li>ヘッドフォン。デスクトップPCを使うときはずっとこれつけてる。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">AKG K240</h3>
+        <ul>
+            <li>ヘッドフォン。</li>
+            <li>サウンドハウスで6000ポイントの有効期限が迫っていた際に、ちょうど6000円くらいでこのヘッドフォンが売っていたので購入。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">中華の怪しいマイク</h3>
+        <ul>
+            <li>Amazonで買った安くて怪しいusbマイク。</li>
+            <li>買ってもうすぐ1年だが、特にこれと言って困ったことはない。</li>
+            <li>Discordとかでおしゃべりするときに使っている。</li>
+        </ul>
+    </section>
+  </div>
+
+  <div class="box">
+    <h2 class="border-b-4 border-b-yellow-400 inline-block my-1">モニター</h2>
+
+    <section>
+        <h3 class="my-2">LG 27UP600-W</h3>
+        <ul>
+            <li>4Kモニター27インチ。IPS液晶でHDR400にも対応していてとてもいい。</li>
+            <li>Amazonの新春安売りの際にとんでもなく値下げされていたので買った。</li>
+            <li>今はすっかりメインモニターになっている。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">PHILIPS 243S9A</h3>
+        <ul>
+            <li>FHDモニター23.8インチ。</li>
+            <li>大学入学の時に親に買ってもらったモニター。</li>
+            <li>今は4Kモニターの右側に縦置きにしてサブモニターとなっている。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Dell U2312HM</h3>
+        <ul>
+            <li>FHDモニター23インチ。</li>
+            <li>とある場所からの拾い物でジャンク品。</li>
+            <li>かつてSD-90の上に載せていたモニターで、サーバー用モニターにしていた。</li>
+            <li>今は一時的に撤去されて部屋の床の上に置かれている。</li>
+            <li>重すぎ。</li>
+        </ul>
+    </section>
+  </div>
+
+  <div class="box">
+    <h2 class="border-b-4 border-b-yellow-400 inline-block my-1">その他のコンピュータ周りのもの</h2>
+
+    <section>
+        <h3 class="my-2">Logicool K835TKL</h3>
+        <ul>
+            <li>メカニカルキーボードの赤軸。有線。</li>
+            <li>7000円というメカニカルキーボードにしては割とお手頃な価格。</li>
+            <li>そろそろ断線しそうで怖い...。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Logicool M585</h3>
+        <ul>
+            <li>マウス。Bluetooth接続。</li>
+            <li>クリスマスの時にちょびさんからいただいたもの。</li>
+            <li>結構使い勝手は悪くないので使い続けている。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Buffalo BSMBB100RD</h3>
+        <ul>
+            <li>マウス。Bluetooth接続。</li>
+            <li>持ち歩き用マウス。</li>
+            <li>よく電池がマウス内で取れて厄介。くそ。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Buffalo BSMRU050</h3>
+        <ul>
+            <li>マウス。有線接続。</li>
+            <li>確か500円くらいの安いマウス。そのため、使い勝手は雑魚。</li>
+            <li>サーバーに使ったり、自作PCにBluetoothドライバを入れる前に使用していたりしている。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Buffalo HD-EDS4.0U3</h3>
+        <ul>
+            <li>外付けHDDで、4TB入る。</li>
+            <li>親に「バックアップ用HDD欲しいんだよね～」とか電話で雑談してたら、なんかいつの間にか買ってくれて知らない間に自宅に届いた。</li>
+            <li>今はメインデスクトップPCのバックアップに使用している。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Buffalo SSD-PG480U3</h3>
+        <ul>
+            <li>外付けSSDで、480GB入る。</li>
+            <li>親に買ってもらった。</li>
+            <li>今はサーバー用デスクトップPCのバックアップに使用している。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">Nitendo Switch 有機ELモデル</h3>
+        <ul>
+            <li>スイッチングハブじゃなくてニンテンドーのスイッチ。</li>
+            <li>カービィシリーズ作品をやりまくっている。</li>
+            <li>ただ、普段から忙しくしているため全然Switchで遊べてない。</li>
+        </ul>
+    </section>
+  </div>
+
+  <div class="box">
+    <h2 class="border-b-4 border-b-yellow-400 inline-block my-1">ネットワーク関係</h2>
+
+    <section>
+        <h3 class="my-2">Buffalo WSR-5400AX6</h3>
+        <ul>
+            <li>ルーターだが、アクセスポイントモードで自分の部屋で使用している。</li>
+            <li>
+                ルーターがおいてあるリビングから自分の部屋が遠すぎて無線WiFiが不安定だったため、購入。
+                <ul><li>第73回調布祭の工学研究部フリーマーケットにて5000円で購入。状態もよく、この性能でこの値段は安すぎ。</li></ul>
+            </li>
+            <li>ネットはリビングから頑張って有線で引っ張ってきている。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="my-2">PLANEX FXG-08IMB</h3>
+        <ul>
+            <li>8ポートギガビットスイッチングハブ。</li>
+            <li>ジャンク品だが、普通に使えた。</li>
+            <li>アクセスポイントを導入後はハブが必要なくなったため、今はクローゼットの中にしまってある。</li>
+        </ul>
+    </section>
+  </div>
+
+    <div class="box">
+        <h2 class="border-b-4 border-b-yellow-400 inline-block my-1">持ち歩き端末・小物</h2>
+
+        <section>
+            <h3 class="my-2">Apple iPhone 12 Pro</h3>
+            <ul>
+                <li>128GB。</li>
+                <li>
+                    高校3年生の4月に親に買ってもらった。
+                    <ul><li>親に「友達と旅行行ったときとかにもっと写真いっぱいとって来い」と言われて写真の性能がiPhone12より高いiPhone12Proを買ってきてくれたが、私自身は全然写真を撮ってきてない。</li></ul>
+                </li>
+                <li>
+                    大学1年生冬に液晶内部を破壊してしまったが、Apple Care+に加入していたため無料で新品と交換してもらえた。
+                    <ul><li>ただ、Docomoの契約者は父親名義で自分でDocomo店舗に行っても何もしてもらえないため、契約者名義は自分の名前の方がいいと実感した(その後の帰省で名義変更をした)。</li></ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 class="my-2">Sony LinkBuds</h3>
+            <ul>
+                <li>かつて、イヤホンは優先主義だったが、Appleのライトニング端子とイヤホンジャックの変換ケーブルが純正品でも秒で断線して困ったので買った。</li>
+                <li>値段相応に音質もよくノイズキャンセリングもばっちりで電車内のQOLが少し上がった。</li>
+                <li>外音取り込みモードもあるため、かなり便利。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 class="my-2">Anker 316 Charger(67W)</h3>
+            <ul>
+                <li>外出先でノートパソコンの充電をするために持ち歩いているACアダプタ。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 class="my-2">Anker Power Bank(10000mAh, 30W)</h3>
+            <ul>
+                <li>モバイルバッテリー。これがないとスマホの充電が尽きてしまう。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 class="my-2">鬼のお面</h3>
+            <ul>
+                <li>徒歩会や旅先でよく持っていくらしい。</li>
+            </ul>
+        </section>
+    </div>
+</BaseLayout>
+<style is:global>
+    section{
+        @apply my-4;
+    }
+    ul{
+    	@apply list-disc mx-8;
+    	ul{
+    	    @apply list-circle my-0;
+    	    ul{
+    	        @apply list-square;
+    	    }
+    	}
+    }
+</style>
