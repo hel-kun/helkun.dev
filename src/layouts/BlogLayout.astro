@@ -38,18 +38,6 @@ const { title, description, tags, date, heroImage } = Astro.props;
 		h3{
 			@apply my-2
 		}
-		a{
-			@apply underline text-blue-500 dark:text-blue-400;
-		}
-		ul{
-			@apply list-disc mx-8;
-			ul{
-				@apply list-circle my-0;
-				ul{
-					@apply list-square;
-				}
-			}
-		}
 		figure{
 			@apply my-4;
 			img{
@@ -62,6 +50,15 @@ const { title, description, tags, date, heroImage } = Astro.props;
 		blockquote{
 			@apply sm:mx-8 mx-2 my-2 p-4 border-solid border-l-8 border-blue-400 bg-gray-300 dark:bg-gray-700;
 		}
+		ul{
+        	@apply list-disc mx-8;
+        	ul{
+        	    @apply list-circle my-0;
+        	    ul{
+        	        @apply list-square;
+        	    }
+        	}
+    	}
 		.twitterCard{
 			@apply block mx-auto my-4 w-full max-w-md;
 		}
