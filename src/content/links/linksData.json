@@ -1,5 +1,26 @@
 [
     {
+        "siteUrl": "https://laddge.net/",
+        "siteName": "Laddgeのページ",
+        "twitterUrl": "laddge_",
+        "name": "Laddge",
+        "description": "つよつよ24生"
+    },
+    {
+        "siteUrl": "https://kqiita.github.io/",
+        "siteName": "はんかくくんのページ",
+        "twitterUrl": "kqiita",
+        "name": "ｷｰﾀ(半角)",
+        "description": "きーたちゃんはアイドル"
+    },
+    {
+        "siteUrl": "https://mcbeeringi.github.io/",
+        "siteName": "エリンギ@McbeEringi",
+        "twitterUrl": "mcbeeringi",
+        "name": "エリンギ",
+        "description": "ArchLinux教信者"
+    },
+    {
         "siteUrl": "https://kat0h.com/",
         "siteName": "かとうのHomePage",
         "twitterUrl": "kat0h",
@@ -57,10 +78,10 @@
     },
     {
         "siteUrl": "https://lnln.dev",
-        "siteName": "りんりん",
+        "siteName": "なかがわ電機サービス",
         "twitterUrl": "lnln_ch",
         "name": "りんりん",
-        "description": "ほんもの"
+        "description": "本物のりんりんサイト"
     },
     {
         "siteUrl": "https://azukibar.dev",
@@ -71,16 +92,23 @@
     },
     {
         "siteUrl": "https://www.hutinoatari.dev",
-        "siteName": "捻れたバベル",
+        "siteName": "淵野アタリ",
         "twitterUrl": "hutinoatari",
         "name": "淵野アタリ",
         "description": "うどんフルスクラッチ芸人"
     },
     {
-        "siteUrl": "https://wasab-wasako.github.io/shigure/",
-        "siteName": "しぐれ庵",
+        "siteUrl": "https://hutinoatari.github.io/",
+        "siteName": "淵野アタリのブログ(リマスター版)",
+        "twitterUrl": "hutinoatari",
+        "name": "淵野アタリ",
+        "description": "目がチカチカするので閲覧注意"
+    },
+    {
+        "siteUrl": "https://shigu10.neocities.org/",
+        "siteName": "しぐれ煮",
         "twitterUrl": "shigure_uec",
         "name": "しぐれ",
-        "description": "工事中"
+        "description": "煮物ではありません"
     }
 ]
