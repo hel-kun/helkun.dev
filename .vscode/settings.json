@@ -2,5 +2,5 @@
     "files.associations": {
       "*.mdx": "markdown"
     },
-    "workbench.preferredHighContrastColorTheme": "Default Dark+"
+    "workbench.preferredHighContrastColorTheme": "Default Dark+"  
 }

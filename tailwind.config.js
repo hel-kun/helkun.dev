@@ -3,6 +3,7 @@ export default {
   content: [
     "./src/**/*.{astro,js,ts}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
