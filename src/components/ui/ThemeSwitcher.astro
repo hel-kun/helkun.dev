@@ -42,7 +42,7 @@
 </style>
 
 <script>
-    const checkbox = document.getElementById('checkbox');
+    const checkbox = document.getElementById('checkbox') as HTMLInputElement;
 
     const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
