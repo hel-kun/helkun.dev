@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base{
+    /* 
+    *{
+        @apply transition-colors duration-300;
+    }
+    */
     body{
         @apply min-h-screen flex flex-col bg-gray-100 text-black dark:bg-slate-950 dark:text-white;
     }
