@@ -2,6 +2,8 @@
 import { type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
+
+
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, tags, date, heroImage } = Astro.props;
@@ -50,6 +52,9 @@ const { title, description, tags, date, heroImage } = Astro.props;
 		blockquote{
 			@apply sm:mx-8 mx-2 my-2 p-4 border-solid border-l-8 border-blue-400 bg-gray-300 dark:bg-gray-700;
 		}
+		a{
+			@apply underline text-blue-500 dark:text-blue-400;
+		}
 		ul{
         	@apply list-disc mx-8;
         	ul{
@@ -75,6 +80,19 @@ const { title, description, tags, date, heroImage } = Astro.props;
 			.description{
 				@apply mt-2 text-base dark:text-slate-400 text-slate-600;
 			}
+		}
+		.toc{
+			@apply rounded-xl p-4 my-4 bg-gray-300 dark:bg-gray-700;
+
+			a{
+				@apply block no-underline text-black dark:text-white;
+			}
+			ol{
+        		@apply list-disc mx-8;
+        		ol{
+        		    @apply list-circle my-0;
+        		}
+    		}
 		}
 	}
 </style>
