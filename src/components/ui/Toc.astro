@@ -15,7 +15,7 @@ const { headings } = Astro.props;
     <input type="checkbox" id="toc-toggle" class="toggle">
     <div class="flex justify-between">
         <h3 class="order-first">目次</h3>
-        <label for="toc-toggle" class="label order-last hover:bg-slate-600 flex flex-col justify-center items-center rounded-md px-2">
+        <label for="toc-toggle" class="label order-last hover:bg-slate-200 dark:hover:bg-slate-600 flex flex-col justify-center items-center rounded-md px-2">
             <span class="left"></span>
             <span class="right"></span>
         </label>
@@ -65,10 +65,10 @@ const { headings } = Astro.props;
     		}
     	}
         .left{
-            @apply w-3 h-1 rounded-full bg-white transition-all rotate-45 -translate-x-1 translate-y-[2px] duration-500;
+            @apply w-3 h-1 rounded-full bg-black dark:bg-white transition-all rotate-45 -translate-x-1 translate-y-[2px] duration-500;
         }
         .right{
-            @apply w-3 h-1 rounded-full bg-white transition-all -rotate-45 translate-x-1 -translate-y-[2px] duration-500;
+            @apply w-3 h-1 rounded-full bg-black dark:bg-white transition-all -rotate-45 translate-x-1 -translate-y-[2px] duration-500;
         }
 
         .toggle:checked + .flex{
