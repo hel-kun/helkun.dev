@@ -4,9 +4,11 @@ interface MarkdownHeading {
     slug: string;
     text: string;
 }
+
 interface Props {
     headings: MarkdownHeading[];
 }
+
 const { headings } = Astro.props;
 ---
 <nav class="toc">
