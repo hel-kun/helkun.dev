@@ -4,7 +4,7 @@ import tailwind from "@astrojs/tailwind";
 import AutoImport from "astro-auto-import";
 import react from "@astrojs/react";
 import expressiveCode from "astro-expressive-code";
-import rehypeToc from 'rehype-toc';
+import rehypeSlug from "rehype-slug";
 import { css } from '@emotion/react';
 const mdxIntegrations = [
   AutoImport({
@@ -31,6 +31,6 @@ export default defineConfig({
     ...mdxIntegrations,
   ],
   markdown: {
-    rehypePlugins: [[rehypeToc, { headings: ['h2', 'h3'], cssClasses: { toc: 'toc' }}]],
+    rehypePlugins: [rehypeSlug],
   },
 });
