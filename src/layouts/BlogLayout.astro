@@ -35,7 +35,7 @@ const { title, description, tags, date, heroImage } = Astro.props;
 <style is:global>
 	.blogContent{
 		h2{
-			@apply inline-block my-4 border-b-4 border-b-yellow-400;
+			@apply inline-block mt-12 mb-4 border-b-4 border-b-yellow-400;
 		}
 		h3{
 			@apply my-2
@@ -80,19 +80,6 @@ const { title, description, tags, date, heroImage } = Astro.props;
 			.description{
 				@apply mt-2 text-base dark:text-slate-400 text-slate-600;
 			}
-		}
-		.toc{
-			@apply rounded-xl p-4 my-4 bg-gray-300 dark:bg-gray-700;
-
-			a{
-				@apply block no-underline text-black dark:text-white;
-			}
-			ol{
-        		@apply list-disc mx-8;
-        		ol{
-        		    @apply list-circle my-0;
-        		}
-    		}
 		}
 	}
 </style>
