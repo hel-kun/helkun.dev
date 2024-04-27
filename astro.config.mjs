@@ -5,7 +5,6 @@ import AutoImport from "astro-auto-import";
 import react from "@astrojs/react";
 import expressiveCode from "astro-expressive-code";
 import rehypeSlug from "rehype-slug";
-import { css } from '@emotion/react';
 const mdxIntegrations = [
   AutoImport({
     imports: [
