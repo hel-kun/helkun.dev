@@ -1,5 +1,5 @@
-import type { YouTubeConfig } from "react-player/youtube";
-import React, { useId } from "react"
+// import type { YouTubeConfig } from "react-player/youtube";
+import { useId } from "react"
 import ReactPlayer from "react-player";
 
 type Props = {
