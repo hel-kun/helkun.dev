@@ -1,0 +1,36 @@
+---
+import { JSDOM } from 'jsdom';
+import fetch from 'node-fetch';
+
+async function getTweetData(url) {
+  try {
+    const res = await fetch(url);
+    const text = await res.text();
+    const dom = new JSDOM(text);
+    const document = dom.window.document;
+
+    const name = document.querySelector('.User-Name').textContent;
+    const content = document.querySelector('.tweetText').textContent;
+    //const date = document.querySelector('.tweet .metadata .date').textContent;
+    //const media = document.querySelector('.tweet .media img') ? document.querySelector('.tweet .media img').src : '';
+
+    return { name, content};
+  } catch (e) {
+    console.error('Failed to fetch tweet data:', e);
+    return null;
+  }
+}
+
+const { url } = Astro.props;
+const tweetData = await getTweetData(url);
+---
+
+<div class="tweet-component">
+  {tweetData ?
+    <>
+      <h2>{tweetData.name}</h2>
+      <p>{tweetData.content}</p>
+    </> :
+    <p>Tweet could not be loaded.</p>
+  }
+</div>

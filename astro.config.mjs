@@ -15,7 +15,8 @@ const mdxIntegrations = [
       "./src/components/ui/Blockquote.astro",
       "./src/components/box/Box.astro",
       "./src/components/box/WarningBox.astro",
-      "./src/components/ui/YoutubePlayer.astro"
+      "./src/components/ui/YoutubePlayer.astro",
+      "./src/components/ui/Tweet.astro"
     ]
   }), 
   mdx(),

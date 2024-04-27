@@ -1,30 +1,66 @@
 ---
+import fetch from 'node-fetch';
+import {JSDOM} from 'jsdom';
 const {url} = Astro.props;
 
-const w=await(await fetch(url)).text();
-const match=[...w.matchAll(/(og|twitter):(?<type>title|description|image)".*? content="(?<content>.*?)"/g)];
+const w=await(await fetch(url)).text(); // fetch the website
+const dom = new JSDOM(w);
+const document = dom.window.document;
 
-const metadata=match.reduce(
-  (a,x)=>(
-    a[x!.groups!.type]=x!.groups!.content,a
-  ),
-  {
-    "title": (w.match(/<title>(.*?)<\/title>/)||"")[1], 
-    "description": (w.match(/name="description".*?content="(.*?)"/)||"")[1] || "", 
-    "image":""
-  } as Record<string, string>
+const metadata = {
+  title: "",
+  description: "",
+  image: "",
+};
+
+const titleElement = document.querySelector("title");
+if (titleElement) {
+  metadata.title = titleElement.textContent;
+}
+
+const descriptionElement = document.querySelector('meta[name="description"]');
+if(descriptionElement){
+  metadata.description = descriptionElement.getAttribute("content");
+}
+
+const metaTags = document.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]');
+metaTags.forEach(
+  function(tag: any) {
+    const property = tag.getAttribute("property") || tag.getAttribute("name");
+    if (property) {
+      const content = tag.getAttribute("content");
+      const key = property.split(":")[1];
+      if(key == 'title') metadata.title = content;
+      else if(key == 'description') metadata.description = content;
+      else if(key == 'image') metadata.image = content;
+    }
+  }
 );
+
+
+// const match=[...w.matchAll(/(og|twitter):(?<type>title|description|image)".*? content="(?<content>.*?)"/g)]; // match all og and twitter meta tags
+// 
+// const metadata=match.reduce(
+//   (a,x)=>(
+//     a[x!.groups!.type]=x!.groups!.content,a
+//   ),
+//   {
+//     "title": (w.match(/<title>(.*?)<\/title>/)||"")[1], 
+//     "description": (w.match(/name="description".*?content="(.*?)"/)||"")[1] || "", 
+//     "image":""
+//   } as Record<string, string>
+// );
 ---
 <div class="urlCard">
   <a href={url} target="_blank">
       <div class="sm:flex flex-col sm:flex-row flex-nowrap items-center">
         <div class="w-full sm:w-[150px] h-[150px] overflow-hidden">
-          <img src={metadata["image"]||"https://helkun.dev/no-image.svg"} alt={metadata["description"]}>
+          <img src={metadata.image||"https://helkun.dev/no-image.svg"} alt={metadata.descriptions}>
         </div>
         <div class="p-4">
-          <p class="title">{metadata["title"]}</p>
+          <p class="title">{metadata.title}</p>
           <p class="description">
-            {metadata["description"].length > 30 ? metadata["description"].substring(0, 30) + "…" : metadata["description"]}
+            {metadata.description.length > 30 ? metadata.description.substring(0, 30) + "…" : metadata.description}
           </p>
         </div>
       </div>
