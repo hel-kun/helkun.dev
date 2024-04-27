@@ -15,12 +15,12 @@ const metadata = {
 
 const titleElement = document.querySelector("title");
 if (titleElement) {
-  metadata.title = titleElement.textContent;
+  metadata.title = titleElement.textContent || "";
 }
 
 const descriptionElement = document.querySelector('meta[name="description"]');
 if(descriptionElement){
-  metadata.description = descriptionElement.getAttribute("content");
+  metadata.description = descriptionElement.getAttribute("content") || "";
 }
 
 const metaTags = document.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]');
@@ -36,7 +36,6 @@ metaTags.forEach(
     }
   }
 );
-
 
 // const match=[...w.matchAll(/(og|twitter):(?<type>title|description|image)".*? content="(?<content>.*?)"/g)]; // match all og and twitter meta tags
 // 
@@ -55,7 +54,7 @@ metaTags.forEach(
   <a href={url} target="_blank">
       <div class="sm:flex flex-col sm:flex-row flex-nowrap items-center">
         <div class="w-full sm:w-[150px] h-[150px] overflow-hidden">
-          <img src={metadata.image||"https://helkun.dev/no-image.svg"} alt={metadata.descriptions}>
+          <img src={metadata.image||"https://helkun.dev/no-image.svg"} alt={metadata.description}>
         </div>
         <div class="p-4">
           <p class="title">{metadata.title}</p>
