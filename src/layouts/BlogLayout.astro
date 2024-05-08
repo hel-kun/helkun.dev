@@ -15,7 +15,9 @@ const { title, description, tags, date, heroImage } = Astro.props;
 		</div>
 		<div class="m-auto p-2 ">
 			<div class="text-center py-2 px-0 mb-4 leading-4">
-				<div class="flex">{tags.map((tag) => <p class="mx-1"><a href={`/blog/tags/${tag}`} class="underline text-blue-500 dark:text-blue-400">#{tag}<a/></p>)}</div>
+				<div class="flex">
+					{tags.map((tag) => <p class="mx-1"><a href={`/blog/tags/${tag}`} class="underline text-blue-500 dark:text-blue-400">#{tag}<a/></p>)}
+				</div>
 				<h1 class="mb-2">{title}</h1>
 				<p class="mb-2 dark:text-slate-400 text-slate-600">
 					{description}

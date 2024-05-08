@@ -15,10 +15,10 @@ const { headings } = Astro.props;
     <input type="checkbox" id="toc-toggle" class="toggle">
     <div class="flex justify-between">
         <h3 class="order-first">目次</h3>
-        <label for="toc-toggle" class="label order-last hover:bg-slate-200 dark:hover:bg-slate-600 flex flex-col justify-center items-center rounded-md px-2">
+        <button id="tocButton" class="label order-last hover:bg-slate-200 dark:hover:bg-slate-600 flex flex-col justify-center items-center rounded-md px-2">
             <span class="left"></span>
             <span class="right"></span>
-        </label>
+        </button>
     </div>
     <div id="content" class="content">
         <ul>
@@ -83,13 +83,23 @@ const { headings } = Astro.props;
 </style>
 <script>
     const checkbox = document.getElementById('toc-toggle') as HTMLInputElement;
+    const button = document.getElementById('tocButton') as HTMLButtonElement;
     const content = document.getElementById('content') as HTMLDivElement;
-    
-    checkbox.addEventListener('change', () => {
+
+    button.addEventListener('click', () => {
+        checkbox.checked = !checkbox.checked;
         if(checkbox.checked){
             content.style.height = `${content.scrollHeight}px`;
         } else {
             content.style.height = '0';
         }
     });
+    
+    //checkbox.addEventListener('change', () => {
+    //    if(checkbox.checked){
+    //        content.style.height = `${content.scrollHeight}px`;
+    //    } else {
+    //        content.style.height = '0';
+    //    }
+    //});
 </script>

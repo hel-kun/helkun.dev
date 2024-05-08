@@ -13,7 +13,7 @@ const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
 
 <BaseLayout SITE_TITLE="へるぶろぐ" SITE_DESCRIPTION="へるくんのブログ">
 	<h1 class="font-bold text-4xl mb-4">へるぶろぐ</h1>
-	<div class="flex mb-2">
+	<div class="flex flex-wrap mb-2">
 		{
 			tags.map((tag) => (
 				<p class="mx-1">
