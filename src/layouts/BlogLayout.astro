@@ -2,8 +2,6 @@
 import { type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-
-
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, tags, date, heroImage } = Astro.props;
@@ -15,7 +13,15 @@ const { title, description, tags, date, heroImage } = Astro.props;
 		</div>
 		<div class="m-auto p-2 ">
 			<div class="text-center py-2 px-0 mb-4 leading-4">
-				<div class="flex">{tags.map((tag) => <p class="mx-1"><a href={`/blog/tags/${tag}`} class="underline text-blue-500 dark:text-blue-400">#{tag}<a/></p>)}</div>
+				<div class="flex frex-wrap">
+					{
+						tags.map((tag) => (
+							<p class="mx-1">
+								<a href={`/blog/tags/${tag}`} class="underline text-blue-500 dark:text-blue-400">#{tag}</a>
+							</p>
+						))
+					}
+				</div>
 				<h1 class="mb-2">{title}</h1>
 				<p class="mb-2 dark:text-slate-400 text-slate-600">
 					{description}
@@ -69,17 +75,9 @@ const { title, description, tags, date, heroImage } = Astro.props;
 		}
 		.urlCard{
 			a{
-				@apply block no-underline max-w-sm max-h-min mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500 dark:hover:shadow-slate-400;
+				@apply no-underline;
 			}
-			img{
-				@apply w-full sm:w-[180px] h-[150px] object-cover border-black dark:border-white sm:border-r-2 smax:border-b-2 mx-0 sm:rounded-l-xl smax:rounded-t-xl;
-			}
-			.title{ 
-				@apply block mt-1 text-xl leading-tight font-bold text-black dark:text-white;
-			}
-			.description{
-				@apply mt-2 text-base dark:text-slate-400 text-slate-600;
-			}
+			
 		}
 	}
 </style>

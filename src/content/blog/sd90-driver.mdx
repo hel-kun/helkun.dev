@@ -3,7 +3,8 @@ title: 'SD-90のドライバをWin11にぶち込もう'
 description: '私は入れるのに苦戦しました'
 tags: ["音楽","技術"]
 date: 2023-06-02
-heroImage: 'https://helkun.dev/image/blog/sd90-driver/sd-90.jpg'
+heroImage: 'https://res.cloudinary.com/helkun/image/upload/v1715079737/helkun.dev/blog/sd90-driver/sd-90_bp15fc.jpg'
+published: true
 ---
 export const components = {blockquote: Blockquote};
 
@@ -34,7 +35,7 @@ export const components = {blockquote: Blockquote};
 ### 2. ドライバ内のinfファイルを書き換える
 解凍したファイルの中に「Files」というフォルダが入っているはずです。そのフォルダの中の「64bit」->「Files」というフォルダの中に「RDIF1016.INF」というファイルがあると思います。それの中身を書き換えましょう。
 
-<ImgCard title="こんな警告も無視して開きます" url="https://helkun.dev/image/blog/sd90-driver/warning.png" alt="警告画面" />
+<ImgCard title="こんな警告も無視して開きます" url="https://res.cloudinary.com/helkun/image/upload/v1715079736/helkun.dev/blog/sd90-driver/warning_o7uiyw.png" alt="警告画面" />
 
 さて、このinfファイルの中身を見てみると、このように書かれている場所があると思います。
 ```txt title="RDIF1016.INF"
@@ -99,11 +100,11 @@ export const components = {blockquote: Blockquote};
 
 まず、Windowsセキュリティを開きます。
 
-<ImgCard title="タスクバーから開くこともできます" url="https://helkun.dev/image/blog/sd90-driver/taskbar.png" alt="タスクバーの画像" />
+<ImgCard title="タスクバーから開くこともできます" url="https://res.cloudinary.com/helkun/image/upload/v1715079736/helkun.dev/blog/sd90-driver/taskbar_viskuf.png" alt="タスクバーの画像" />
 
 開いたら、デバイスセキュリティをクリックして、コア分離の詳細を開きましょう。すると、メモリ整合性の設定ができると思うので、これをオフにしてください。
 
-<ImgCard title="このようになればオッケー" url="https://helkun.dev/image/blog/sd90-driver/coa-divide.png" alt="メモリ整合性の設定画面" />
+<ImgCard title="このようになればオッケー" url="https://res.cloudinary.com/helkun/image/upload/v1715079737/helkun.dev/blog/sd90-driver/coa-divide_vgohi6.png" alt="メモリ整合性の設定画面" />
 
 ### 4. 署名なしドライバを実行できるようにする
 説明が面倒なので、以下のサイトを参考にしてください。(説明してくれーって言われた書きますが...)

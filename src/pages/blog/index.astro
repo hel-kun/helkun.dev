@@ -3,7 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import BlogPostCard from '@/components/card/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).sort(
+const allPosts = (await getCollection('blog')).filter((post) => post.data.published);
+const posts = allPosts.sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
@@ -12,7 +13,7 @@ const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
 
 <BaseLayout SITE_TITLE="へるぶろぐ" SITE_DESCRIPTION="へるくんのブログ">
 	<h1 class="font-bold text-4xl mb-4">へるぶろぐ</h1>
-	<div class="flex mb-2">
+	<div class="flex flex-wrap mb-2">
 		{
 			tags.map((tag) => (
 				<p class="mx-1">

@@ -11,7 +11,7 @@ import Bluesky from '@/components/ui/svg/Bluesky.astro';
 
 import { getCollection } from 'astro:content';
 
-const latestpost = (await getCollection('blog')).sort(
+const latestpost = (await getCollection('blog')).filter((post)=>post.data.published).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 )[0];
 ---
