@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/**/*.{astro,js,ts}",
+    "./src/**/*.{astro,js,ts,vue}",
   ],
   // darkMode: 'class',
   theme: {
