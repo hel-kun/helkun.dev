@@ -1,5 +1,5 @@
 <template>
-    <h1 class="font-bold text-4xl mb-4">Webルーレット(beta版)</h1>
+    <h1 class="font-bold text-4xl mb-4">へるーれっと(beta版)</h1>
     <p class="mb-4">ルーレットを回してみよう！</p>
 <!--
     <div class="m-4">
