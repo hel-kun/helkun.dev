@@ -28,6 +28,7 @@
 
 <script>
 import PopupCard from '@/components/app/Roulette/PopupCard.vue';
+import { number } from 'astro/zod';
 export default {
     components: {
         PopupCard
@@ -57,6 +58,10 @@ export default {
             console.log('Spin the wheel!');
             let totalRate=0;
             for (let item of this.items) {
+                if(typeof item.rate != 'number'){
+                    window.alert('当選比率は数値で入力してください。');
+                    return;
+                }
                 totalRate += item.rate;
             }
             let random = Math.random() * totalRate;
