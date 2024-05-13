@@ -58,7 +58,7 @@ export default {
             console.log('Spin the wheel!');
             let totalRate=0;
             for (let item of this.items) {
-                if(typeof item.rate != 'number' && item.rate < 0){
+                if(typeof item.rate != 'number' || item.rate < 0){
                     window.alert('当選比率は0以上の数値で入力してください。');
                     return;
                 }
