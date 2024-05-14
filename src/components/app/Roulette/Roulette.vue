@@ -1,11 +1,11 @@
 <template>
     <h1 class="font-bold text-4xl mb-4">へるーれっと(beta版)</h1>
     <p class="mb-4">ルーレットを回してみよう！</p>
-<!--
+
     <div class="m-4">
         <canvas ref="canvas" width="500" height="500"></canvas>
     </div>
--->
+
     <PopupCard ref="popup" />
 
     <div class="tableTitle">
@@ -15,36 +15,54 @@
     <form class="label">
         <ul>
             <li v-for="(entry, index) in items" :key="index">
-                <input class="text-black" v-model="entry.label" type="text" placeholder="項目内容" />
-                <input class="text-black" v-model.number="entry.rate" type="number" placeholder="比率" />
+                <input class="text-black" v-model="entry.label" @blur="contentEvent" type="text" placeholder="項目内容" />
+                <input class="text-black" v-model.number="entry.rate" @blur="rateEvent(index) " type="number" placeholder="比率" />
                 <button class="deleteButton" type="button" @click="removeItem(index)" >削除</button>
             </li>
         </ul>
     </form>
     
     <button class="addButton" type="button" @click="addItem" >項目追加</button>
-    <button class="spinButton" type="button" @click="spin" >抽選を回す</button>
+    <button class="spinButton" type="button" @click="spin" >抽選</button>
 </template>
 
-<script>
+<script type>
 import PopupCard from '@/components/app/Roulette/PopupCard.vue';
-import { number } from 'astro/zod';
 export default {
     components: {
         PopupCard
     },
     data() {
         return {
-            items: [{ label: '', rate: 1 }]
+            items: [{ label: '', rate: 1 }],
+            currentRotation: 0,
+            spinDuration: 3000,
+            isSpinning: false
         };
     },
-    //mounted() {
-    //    this.setupCanvas();
-    //},
+    mounted() {
+        this.drawCanvas();
+    },
     methods: {
         addItem() {
             console.log('Add item!');
             this.items.push({ label: '', rate: 1 });
+            this.drawCanvas();
+        },
+        contentEvent() {
+            this.drawCanvas();
+        },
+        rateEvent(index) {
+            //rateが数字じゃないもしくは負の時の処理
+            if(typeof this.items[index].rate != 'number' || this.items[index].rate<0 ){
+                this.items[index].rate=1;
+            }
+            // 全てのrateが0の時の処理
+            let totalRate = this.items.reduce((sum, item) => sum + item.rate, 0);
+            if(totalRate === 0){
+                this.items[index].rate=1;
+            }
+            this.drawCanvas();
         },
         removeItem(index) {
             if(this.items.length === 1){
@@ -52,46 +70,111 @@ export default {
             }else{
                 console.log('Remove item!');
                 this.items.splice(index, 1);
+                this.drawCanvas();
             }
         },
         spin() {
-            console.log('Spin the wheel!');
-            let totalRate=0;
-            for (let item of this.items) {
-                if(typeof item.rate != 'number' || item.rate < 0){
-                    window.alert('当選比率は0以上の数値で入力してください。');
-                    return;
+            if (this.isSpinning) return; //Spin中は回さない
+            this.isSpinning = true;
+
+            const spinToAngle = 3600 + Math.random() * 360;
+            const startTime = Date.now();
+            const duration = this.spinDuration;
+
+            const animate = () => {
+                const elapsedTime = Date.now() - startTime;
+                if (elapsedTime < duration) {
+                    const easeOut = 1 - ((1 - elapsedTime / duration) ** 3); //少しずつ遅くする
+                    this.currentRotation = easeOut * spinToAngle; //easeOutをかけることで遅くなる
+                    this.drawCanvas(this.currentRotation); //canvasを描画
+                    requestAnimationFrame(animate);
+                } else {
+                    this.currentRotation = spinToAngle; //最終的な角度に設定
+                    this.drawCanvas(this.currentRotation); //canvasを描画
+                    this.selectItem(this.currentRotation % 360); //選ばれた項目を表示
+                    this.isSpinning = false;
                 }
-                totalRate += item.rate;
-            }
-            if(totalRate === 0){
-                window.alert('当選比率が全て0なので抽選できません。');
-                return;
-            }
-            let random = Math.random() * totalRate;
-            let sum = 0;
+            };
+
+            requestAnimationFrame(animate);
+        },
+        selectItem(finalAngle) {
+            console.log(finalAngle);
+
+            let totalRate = this.items.reduce((sum, item) => sum + item.rate, 0);
+            let startAngle = -finalAngle;
+            let pointAngle = 0;
 
             for (let item of this.items) {
-                sum += item.rate;
-                if (random < sum) {
-                    console.log('Selected:', item.label);
+                let sliceAngle = (item.rate / totalRate) * 360;
+                if (startAngle < pointAngle && pointAngle <= startAngle + sliceAngle) {
                     this.$refs.popup.show(item.label);
                     break;
                 }
+                startAngle += sliceAngle;
             }
         },
-        //setupCanvas() {
-        //    const canvas = this.$refs.canvas;
-        //    const ctx = canvas.getContext('2d');
-        //    ctx.fillStyle = 'rgb(255, 0, 0)';
-        //    ctx.arc(100, 100, 50, 0, Math.PI * 2, false);
-        //    ctx.fill();
-        //}
+        drawCanvas(rotation = 0) {
+            let canvas = this.$refs.canvas;
+            let ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            let centerX = canvas.width / 2;
+            let centerY = canvas.height / 2;
+            let radius = Math.min(centerX, centerY) - 30;
+            let totalRate = this.items.reduce((sum, item) => sum + item.rate, 0);
+            let startAngle = -rotation * Math.PI / 180;
+
+            this.items.forEach((item, index) => {
+                if(item.rate === 0) return;
+
+                let sliceAngle = (item.rate / totalRate) * Math.PI * 2;
+                let color = `hsla(${360 * (index / this.items.length)}, 100%, 50%, 75%)`;
+            
+                //円弧
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
+                ctx.closePath();
+                ctx.fill();
+
+                // ラベル
+                ctx.font = "28px Arial";
+                let textAngle = startAngle + sliceAngle / 2;
+                let textX = centerX + (radius / 2) * Math.cos(textAngle);
+                let textY = centerY + (radius / 2) * Math.sin(textAngle);
+                ctx.save();
+                ctx.translate(textX, textY);
+                ctx.rotate(textAngle);
+                ctx.fillStyle = "#fff";
+                ctx.strokeStyle = "#000";
+                ctx.lineWidth = 6;
+                ctx.strokeText(item.label, -ctx.measureText(item.label).width / 2, 0);
+                ctx.fillText(item.label, -ctx.measureText(item.label).width / 2, 0);
+                ctx.restore();
+            
+                startAngle += sliceAngle;
+            });
+
+            // 三角矢印
+            ctx.beginPath();
+            ctx.moveTo(centerX + radius + 10, centerY - 15);
+            ctx.lineTo(centerX + radius + 10, centerY + 15);
+            ctx.lineTo(centerX + radius - 25, centerY);
+            ctx.closePath();
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            ctx.fillStyle = "#ff0055";
+            ctx.fill();
+        }
     },
 }
 </script>
 
 <style scoped>
+canvas{
+    @apply mx-auto w-full max-w-[500px];
+}
 .tableTitle{
     @apply flex flex-nowrap;
     p{

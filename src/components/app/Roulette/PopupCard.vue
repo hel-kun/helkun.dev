@@ -10,9 +10,6 @@
 
 <script>
 export default {
-    props: {
-        message: String,
-    },
     data() {
         return {
             message: '',
