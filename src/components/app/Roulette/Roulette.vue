@@ -8,6 +8,8 @@
 
     <PopupCard ref="popup" />
 
+    <button class="spinButton" type="button" @click="spin" :disabled="isSpinning" >ルーレットを回す</button>
+
     <div class="tableTitle">
         <p>抽選項目</p>
         <p>当選比率</p>
@@ -23,7 +25,6 @@
     </form>
     
     <button class="addButton" type="button" @click="addItem" :disabled="isSpinning" >項目追加</button>
-    <button class="spinButton" type="button" @click="spin" :disabled="isSpinning" >ルーレットを回す</button>
 </template>
 
 <script>
@@ -193,7 +194,7 @@ ul {
     }
 }
 .spinButton {
-    @apply bg-blue-500 text-white m-2 p-2 rounded-md hover:bg-blue-700;
+    @apply bg-blue-500 text-white block mx-auto my-4 p-2 rounded-md hover:bg-blue-700;
 }
 .addButton {
     @apply bg-green-500 text-white m-2 p-2 rounded-md hover:bg-green-700;
