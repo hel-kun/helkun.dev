@@ -15,18 +15,18 @@
     <form class="label">
         <ul>
             <li v-for="(entry, index) in items" :key="index">
-                <input class="text-black" v-model="entry.label" @blur="contentEvent" type="text" placeholder="項目内容" />
-                <input class="text-black" v-model.number="entry.rate" @blur="rateEvent(index) " type="number" placeholder="比率" />
-                <button class="deleteButton" type="button" @click="removeItem(index)" >削除</button>
+                <input class="text-black" v-model="entry.label" @blur="contentEvent" type="text" placeholder="項目内容" :disabled="isSpinning" />
+                <input class="text-black" v-model.number="entry.rate" @blur="rateEvent(index) " type="number" placeholder="比率" :disabled="isSpinning" />
+                <button class="deleteButton" type="button" @click="removeItem(index)" :disabled="isSpinning" >削除</button>
             </li>
         </ul>
     </form>
     
-    <button class="addButton" type="button" @click="addItem" >項目追加</button>
-    <button class="spinButton" type="button" @click="spin" >抽選</button>
+    <button class="addButton" type="button" @click="addItem" :disabled="isSpinning" >項目追加</button>
+    <button class="spinButton" type="button" @click="spin" :disabled="isSpinning" >ルーレットを回す</button>
 </template>
 
-<script type>
+<script>
 import PopupCard from '@/components/app/Roulette/PopupCard.vue';
 export default {
     components: {
@@ -37,7 +37,7 @@ export default {
             items: [{ label: '', rate: 1 }],
             currentRotation: 0,
             spinDuration: 3000,
-            isSpinning: false
+            isSpinning: false,
         };
     },
     mounted() {
@@ -74,7 +74,6 @@ export default {
             }
         },
         spin() {
-            if (this.isSpinning) return; //Spin中は回さない
             this.isSpinning = true;
 
             const spinToAngle = 3600 + Math.random() * 360;
