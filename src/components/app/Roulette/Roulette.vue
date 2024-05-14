@@ -139,7 +139,8 @@ export default {
                 ctx.fill();
 
                 // ラベル
-                ctx.font = "28px Arial";
+                ctx.font = this.items.length > 12 ? "18px Arial" : "28px Arial";
+                ctx.textAlign = "center";
                 let textAngle = startAngle + sliceAngle / 2;
                 let textX = centerX + (radius / 2) * Math.cos(textAngle);
                 let textY = centerY + (radius / 2) * Math.sin(textAngle);
@@ -149,8 +150,8 @@ export default {
                 ctx.fillStyle = "#fff";
                 ctx.strokeStyle = "#000";
                 ctx.lineWidth = 6;
-                ctx.strokeText(item.label, -ctx.measureText(item.label).width / 2, 0);
-                ctx.fillText(item.label, -ctx.measureText(item.label).width / 2, 0);
+                ctx.strokeText(item.label, 0, 0, canvas.width /2 - 40);
+                ctx.fillText(item.label, 0, 0, canvas.width /2 - 40);
                 ctx.restore();
             
                 startAngle += sliceAngle;
@@ -176,7 +177,7 @@ canvas{
     @apply mx-auto w-full max-w-[500px];
 }
 .tableTitle{
-    @apply flex flex-nowrap;
+    @apply flex flex-nowrap justify-center ;
     p{
         @apply font-bold text-center mx-1 px-1 w-[37.5%] max-w-52;
     }
