@@ -139,7 +139,7 @@ export default {
                 ctx.fill();
 
                 // ラベル
-                ctx.font = this.items.length > 12 ? "18px Arial" : "28px Arial";
+                ctx.font = totalRate > 12 ? "18px Arial" : "28px Arial";
                 ctx.textAlign = "center";
                 let textAngle = startAngle + sliceAngle / 2;
                 let textX = centerX + (radius / 2) * Math.cos(textAngle);
