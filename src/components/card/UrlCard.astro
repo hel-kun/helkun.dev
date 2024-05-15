@@ -36,19 +36,6 @@ metaTags.forEach(
     }
   }
 );
-
-// const match=[...w.matchAll(/(og|twitter):(?<type>title|description|image)".*? content="(?<content>.*?)"/g)]; // match all og and twitter meta tags
-// 
-// const metadata=match.reduce(
-//   (a,x)=>(
-//     a[x!.groups!.type]=x!.groups!.content,a
-//   ),
-//   {
-//     "title": (w.match(/<title>(.*?)<\/title>/)||"")[1], 
-//     "description": (w.match(/name="description".*?content="(.*?)"/)||"")[1] || "", 
-//     "image":""
-//   } as Record<string, string>
-// );
 ---
 <div class="urlCard">
   <a href={url} class="block no-underline max-w-sm sm:max-h-[150px] mx-auto border-solid border-2 border-slate-800 dark:border-slate-200 rounded-xl shadow-md sm:max-w-xl m-4 transition hover:shadow-lg hover:shadow-slate-500 dark:hover:shadow-slate-400 truncate" target="_blank">
