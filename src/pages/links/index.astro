@@ -25,6 +25,14 @@ LinksData.sort(
 
     <h2 class="border-b-4 border-b-yellow-400 inline-block my-1">大学の知り合い</h2>
     <div class="flex flex-wrap items-stretch">
-        {LinksData.map((data) => <LinkCard siteUrl={data.siteUrl} siteName={data.siteName} twitterUrl={"https://twitter.com/" + data.twitterUrl} name={data.name} description={data.description} />)}
+        {LinksData.map((data) => (
+            <LinkCard 
+                siteUrl={data.siteUrl}
+                siteName={data.siteName}
+                twitterUrl={"https://twitter.com/" + data.twitterUrl}
+                name={data.name}
+                description={data.description}
+            />
+        ))}
     </div>
 </BaseLayout>
