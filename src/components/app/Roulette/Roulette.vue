@@ -24,7 +24,20 @@
         </ul>
     </form>
     
-    <button class="addButton" type="button" @click="addItem" :disabled="isSpinning" >項目追加</button>
+    <div class="flex justify-between">
+        <button class="addButton" type="button" @click="addItem" :disabled="isSpinning" >項目追加</button>
+        <button class="scrollButton" type="button" @click="moveToTop">
+            <div class="flex flex-col justify-center items-center px-2">
+                <span class="bar1"></span>
+                <span class="bar2"></span>
+            </div>
+            <p>トップへ</p>
+            <div class="flex flex-col justify-center items-center px-2">
+                <span class="bar1"></span>
+                <span class="bar2"></span>
+            </div>
+        </button>
+    </div>
 </template>
 
 <script>
@@ -73,6 +86,12 @@ export default {
                 this.items.splice(index, 1);
                 this.drawCanvas();
             }
+        },
+        moveToTop(){
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         },
         spin() {
             this.isSpinning = true;
@@ -140,7 +159,7 @@ export default {
 
                 // ラベル
                 ctx.font = totalRate > 12 ? "18px Arial" : "28px Arial";
-                ctx.textAlign = "center";
+　                ctx.textAlign = "center";
                 let textAngle = startAngle + sliceAngle / 2;
                 let textX = centerX + (radius / 2) * Math.cos(textAngle);
                 let textY = centerY + (radius / 2) * Math.sin(textAngle);
@@ -177,7 +196,7 @@ canvas{
     @apply mx-auto w-full max-w-[500px];
 }
 .tableTitle{
-    @apply flex flex-nowrap justify-center ;
+    @apply flex flex-nowrap;
     p{
         @apply font-bold text-center mx-1 px-1 w-[37.5%] max-w-52;
     }
@@ -198,6 +217,15 @@ ul {
     @apply bg-blue-500 text-white block mx-auto my-4 p-2 rounded-md hover:bg-blue-700;
 }
 .addButton {
-    @apply bg-green-500 text-white m-2 p-2 rounded-md hover:bg-green-700;
+    @apply bg-green-500 text-white m-2 p-2 rounded-md hover:bg-green-700 order-first;
+}
+.scrollButton{
+    @apply bg-yellow-500 text-white m-2 p-2 rounded-md hover:bg-yellow-700 order-last flex justify-center items-center px-2;
+    .bar1{
+        @apply w-3 h-1 rounded-full bg-white -rotate-45 -translate-x-1 translate-y-[2px];
+    }
+    .bar2{
+        @apply w-3 h-1 rounded-full bg-white rotate-45 translate-x-1 -translate-y-[2px];
+    }
 }
 </style>
