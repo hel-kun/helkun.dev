@@ -1,5 +1,12 @@
 [
     {
+        "title": "Club House",
+        "image": "https://helkun.dev/image/works/clubHouse.png",
+        "date": "2024-08",
+        "description": "大学の「ビジュアル情報処理」の最終課題で制作した仮想空間。6月に行ったtano*c Tour Tokyoに影響されて制作した。Processingを使用して作成している。",
+        "github": "https://github.com/hel-kun/visual_info"
+    },
+    {
         "title": "へるーれっと",
         "image": "https://helkun.dev/image/works/webRoulette_beta.png",
         "date": "2024-05",
