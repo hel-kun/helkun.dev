@@ -7,7 +7,7 @@ const {title,image,date,description,github = "",siteUrl=""} = Astro.props;
     <time class="mx-2 mt-0 mb-1" datetime={date}>制作日：{date}</time>
     <p>{description}</p>
     <p class="text-center">
-        {github!="" ? <button class="button"  onclick={`window.open('${github}', '_self')`}>Github</button>: ""}
-        {siteUrl!="" ? <button class="button"  onclick={`window.open('${siteUrl}', '_self')`}>WebSite</button>: ""}
+        {github!="" ? <a class="button"  href={github}>Github</a>: ""}
+        {siteUrl!="" ? <a class="button" href={siteUrl} target="_self">WebSite</a>: ""}
     </p>
 </div>
