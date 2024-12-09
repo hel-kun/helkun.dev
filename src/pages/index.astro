@@ -28,7 +28,7 @@ const latestpost = (await getCollection('blog')).filter((post)=>post.data.publis
 		<div class="box sm:w-[calc(50%_-_1rem)] w-full">
 			<h2>Latest Blog</h2>
 			<div class="mx-auto my-2 p-0 gap-8 list-none mdmax:gap-2 w-[calc(100%_-_1rem)] bg-slate-200 dark:bg-slate-800 rounded-xl  border-solid border-2 border-slate-800 dark:border-slate-200 text-center transition hover:shadow-lg hover:shadow-slate-500 dark:hover:shadow-slate-400">
-				<a href={`/blog/${latestpost.slug}/`} class="block">
+				<a href={`/blog/${latestpost.id}/`} class="block">
 					<img class="m-0 rounded-xl" width={720} height={540} src={latestpost.data.heroImage} alt={latestpost.data.description} />
 					<div class="flex">{latestpost.data.tags.map((tag) => <p class="mx-1 text-start underline text-blue-500 dark:text-blue-400">#{tag}</p>)}</div>
 					<h3 class="mx-2 my-0">{latestpost.data.title}</h3>
