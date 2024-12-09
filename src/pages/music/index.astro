@@ -40,9 +40,9 @@ const videos = data.items.map(item => {
         <h2>YouTube</h2>
         <p>YouTubeにあげた最新6つの動画です。(サイトのビルド時にYouTube Data API v3を使って自動取得しているのでバグってたらすいません)</p>
         <section>
-            {videos.map(video => (
-                <YoutubePlayer videoId={video.videoId} />
-            ))}
+        {videos.map(video => (
+            <YoutubePlayer videoId={video.videoId} />
+        ))}
         </section>
     </div>
 </BaseLayout>
