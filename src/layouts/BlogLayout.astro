@@ -38,6 +38,19 @@ const { title, description, tags, date, heroImage } = Astro.props;
 	</article>
 </BaseLayout>
 
+<script>
+	const content = document.querySelector('.blogContent');
+	if (content) {
+		const tables = content.querySelectorAll('table');
+		tables.forEach(table => {
+			const wrapper = document.createElement('div');
+			wrapper.className = 'table_container';
+			table.parentNode?.insertBefore(wrapper, table);
+			wrapper.appendChild(table);
+		});
+	}
+</script>
+
 <style is:global>
 	.blogContent{
 		h2{
@@ -57,6 +70,33 @@ const { title, description, tags, date, heroImage } = Astro.props;
 		}
 		blockquote{
 			@apply sm:mx-8 mx-2 my-2 p-4 border-solid border-l-8 border-blue-400 bg-gray-300 dark:bg-gray-700;
+		}
+		p,table{
+			code{
+				@apply rounded-sm p-1 bg-[#d4d4d4] dark:bg-[#1e1e1e] text-[#1e1e1e] dark:text-[#d4d4d4];
+			}
+		}
+
+		table{
+			@apply w-full min-w-[720px];
+			th, td{
+				@apply border border-gray-400 dark:border-gray-500 p-2;
+			}
+			th{
+				@apply bg-gray-200 dark:bg-gray-800;
+			}
+			td{
+				@apply bg-gray-100 dark:bg-gray-700;
+			}
+		}
+		.table_container {
+			@apply overflow-x-auto;
+			&::-webkit-scrollbar {
+				@apply h-2;
+			}
+			&::-webkit-scrollbar-thumb {
+				@apply bg-gray-400 dark:bg-gray-600 rounded;
+			}
 		}
 		a{
 			@apply underline text-blue-500 dark:text-blue-400;
