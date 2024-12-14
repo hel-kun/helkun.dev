@@ -54,7 +54,7 @@ const { title, description, tags, date, heroImage } = Astro.props;
 <style is:global>
 	.blogContent{
 		h2{
-			@apply inline-block pt-20 -mt-16 mb-4 border-b-4 border-b-yellow-400;
+			@apply inline-block my-4 border-b-4 border-b-yellow-400 scroll-mt-20;
 		}
 		h3{
 			@apply pt-20 -mt-[72px] mx-2 mb-2;
@@ -83,14 +83,14 @@ const { title, description, tags, date, heroImage } = Astro.props;
 				@apply border border-gray-400 dark:border-gray-500 p-2;
 			}
 			th{
-				@apply bg-gray-200 dark:bg-gray-800;
+				@apply bg-gray-300 dark:bg-gray-800;
 			}
 			td{
-				@apply bg-gray-100 dark:bg-gray-700;
+				@apply bg-gray-200 dark:bg-gray-700;
 			}
 		}
 		.table_container {
-			@apply overflow-x-auto;
+			@apply overflow-x-auto my-2;
 			&::-webkit-scrollbar {
 				@apply h-2;
 			}
