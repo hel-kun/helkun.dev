@@ -2,7 +2,6 @@
     <h1 class="font-bold text-4xl mb-4">へるーれっと(beta版)</h1>
     <p class="mb-4">
         へるーれっと！押すだけ！ルーレットを回してみよう！
-        <br/>
         使い方は<a href="/works/webRoulette/howToUse">こちら</a>。
     </p>
 
@@ -70,19 +69,28 @@ export default {
         load(event) {
             const file = event.target.files[0];
             const reader = new FileReader();
+            let rateSum = 0;
             reader.onload = (e) => {
                 const data = JSON.parse(e.target.result);
-                if (!Array.isArray(data)) {
+                if (!Array.isArray(data) || data.length === 0) {
                     window.alert('不正な形式のファイルです。');
                     return;
                 }
                 for (let item of data) {
-                    if (typeof item.label !== 'string' || typeof item.rate !== 'number' || Object.keys(item).length > 2) {
-                        window.alert('不正な形式のファイルです。');
+                    if ( !item.hasOwnProperty('label') || !item.hasOwnProperty('rate') || Object.keys(item).length !== 2) {
+                        window.alert('不正な形式のファイルです。Jsonのkeyを修正して下さい。');
                         return;
                     }
+                    if(typeof item.label !== 'string'){
+                        window.alert('不正な形式のファイルです。labelは文字列で入力して下さい。');
+                        return;
+                    }
+                    rateSum += item.rate;
                 }
                 this.items = data;
+                if(rateSum === 0){
+                    this.items[0].rate = 1;
+                }
                 this.drawCanvas();
                 console.log('Load items!');
             };
