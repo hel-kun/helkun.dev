@@ -1,6 +1,9 @@
 <template>
     <h1 class="font-bold text-4xl mb-4">へるーれっと(beta版)</h1>
-    <p class="mb-4">ルーレットを回してみよう！</p>
+    <p class="mb-4">
+        へるーれっと！押すだけ！ルーレットを回してみよう！
+        使い方は<a href="/works/webRoulette/howToUse">こちら</a>。
+    </p>
 
     <div class="m-4">
         <canvas ref="canvas" width="500" height="500"></canvas>
@@ -10,6 +13,11 @@
 
     <button class="spinButton" type="button" @click="spin" :disabled="isSpinning" >ルーレットを回す</button>
 
+    <div class="flex justify-between">
+        <button class="inputFile" onclick="document.getElementById('file').click()" :disabled="isSpinning" >項目を読み込む</button>
+        <input class="hidden" id="file" type='file' accept=".json" alt="抽選項目と当選比率を読み込む" @change="load"></input>
+        <button class="saveButton" @click="save" :disabled="isSpinning">項目を保存</button>
+    </div>
     <div class="tableTitle">
         <p>抽選項目</p>
         <p>当選比率</p>
@@ -58,6 +66,47 @@ export default {
         this.drawCanvas();
     },
     methods: {
+        load(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            let rateSum = 0;
+            reader.onload = (e) => {
+                const data = JSON.parse(e.target.result);
+                if (!Array.isArray(data) || data.length === 0) {
+                    window.alert('不正な形式のファイルです。');
+                    return;
+                }
+                for (let item of data) {
+                    if ( !item.hasOwnProperty('label') || !item.hasOwnProperty('rate') || Object.keys(item).length !== 2) {
+                        window.alert('不正な形式のファイルです。Jsonのkeyを修正して下さい。');
+                        return;
+                    }
+                    if(typeof item.label !== 'string'){
+                        window.alert('不正な形式のファイルです。labelは文字列で入力して下さい。');
+                        return;
+                    }
+                    rateSum += item.rate;
+                }
+                this.items = data;
+                if(rateSum === 0){
+                    this.items[0].rate = 1;
+                }
+                this.drawCanvas();
+                console.log('Load items!');
+            };
+            reader.readAsText(file);
+        },
+        save() {
+            const data = JSON.stringify(this.items, null, 2);
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'items.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            console.log('Save items!');
+        },
         addItem() {
             console.log('Add item!');
             this.items.push({ label: '', rate: 1 });
@@ -211,13 +260,34 @@ ul {
         .deleteButton {
             @apply bg-red-500 text-white m-1 p-2 rounded-md hover:bg-red-700;
         }
+        .deleteButton:disabled{
+            @apply bg-red-700;
+        }
     }
 }
 .spinButton {
     @apply bg-blue-500 text-white block mx-auto my-4 p-2 rounded-md hover:bg-blue-700;
 }
+.spinButton:disabled{
+    @apply bg-blue-700;
+}
 .addButton {
     @apply bg-green-500 text-white m-2 p-2 rounded-md hover:bg-green-700 order-first;
+}
+.addButton:disabled{
+    @apply bg-green-700;
+}
+.inputFile{
+    @apply m-2 p-2 rounded-md bg-green-500 text-white hover:bg-green-700;
+}
+.inputFile:disabled{
+    @apply bg-green-700;
+}
+.saveButton{
+    @apply m-2 p-2 rounded-md bg-blue-500 text-white hover:bg-blue-700;
+}
+.saveButton:disabled{
+    @apply bg-blue-700;
 }
 .scrollButton{
     @apply bg-yellow-500 text-white m-2 p-2 rounded-md hover:bg-yellow-700 order-last flex justify-center items-center px-2;
