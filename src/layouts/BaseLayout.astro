@@ -23,4 +23,10 @@ const { SITE_TITLE, SITE_DESCRIPTION, SITE_IMAGE } = Astro.props;
 	.expressive-code{
 		@apply my-2;
 	}
+	ol{
+			@apply list-decimal mx-8;
+			ol{
+				@apply list-roman my-0;
+			}
+		}
 </style>
