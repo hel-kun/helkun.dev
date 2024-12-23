@@ -1,7 +1,59 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import {Content} from '@/pages/works/webRoulette/howToUse.mdx';
+import ImgCard from '@/components/card/ImgCard.astro';
+import { Code } from 'astro-expressive-code/components';
 ---
 <BaseLayout SITE_TITLE="へるーれっとのつかいかた" SITE_DESCRIPTION="へるーれっとのつかいかた" >
-  <Content />
+  <h1 class="my-2">へるーれっと使い方</h1>
+  <h2 class="inline-block my-4 border-b-4 border-b-yellow-400">へるーれっととは</h2>
+  <p>
+    <a href="/works/webRoulette">これ</a>です。Webルーレットです。
+  </p>
+  <ImgCard url="https://helkun.dev/image/works/webRoulette_beta.png" />
+
+  <h2 class="inline-block my-4 border-b-4 border-b-yellow-400">基本的な使い方</h2>
+  <ol>
+    <li>項目を追加 & 記入</li>
+    <li>比率を設定</li>
+    <li>「ルーレットを回す」ボタンを押す！</li>
+  </ol>
+
+  <h2 class="inline-block my-4 border-b-4 border-b-yellow-400">ちょっと応用的な使い方</h2>
+  <p>
+    外部のjsonファイルから各項目を読み込むことができます。
+    以下のような形式で書いて、「項目を読み込む」ボタンでjsonを読み込んでください。一応jsonのテンプレートも配布しておきます。
+    <br/>
+    <a href="https://helkun.dev/roulette/template.json" download>jsonテンプレートをダウンロード</a>
+  </p>
+  <Code 
+  code=`[
+  {
+    "label": "hogehoge",
+    "rate": 1
+  },
+  {
+    "label": "fugafuga",
+    "rate": 1
+  },
+  {
+    "label": "piyopiyo",
+    "rate": 2
+  }
+]`
+    lang="json" 
+    title="item.json" 
+    frame='terminal' 
+  />
+
+  <p>
+    この形式に沿わないものをインポートしようとしても弾かれますので注意して下さい。
+    <br/>
+    逆に、「項目を保存」ボタンを押すことで、入力した項目をこの形式のjsonにエクスポートすることもできます。
+  </p>
+
+  <h2 class="inline-block my-4 border-b-4 border-b-yellow-400">バグを発見したら</h2>
+  <p>
+    へるーれっとはみなさんのデバッグを歓迎します。バグを発見した場合は、
+    <a href='https://github.com/hel-kun/helkun.dev/issues'>Issue</a>に報告してくれると助かります。
+  </p>
 </BaseLayout>
