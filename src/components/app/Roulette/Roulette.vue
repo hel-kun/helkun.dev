@@ -68,10 +68,12 @@ export default {
     methods: {
         load(event) {
             const file = event.target.files[0];
+            if (!file) return;
             const reader = new FileReader();
             let rateSum = 0;
             reader.onload = (e) => {
                 const data = JSON.parse(e.target.result);
+                // window.alertを使ってエラーメッセージを表示
                 if (!Array.isArray(data) || data.length === 0) {
                     window.alert('不正な形式のファイルです。');
                     return;
@@ -88,11 +90,13 @@ export default {
                     rateSum += item.rate;
                 }
                 this.items = data;
+                // 全ての項目のrateが0の時は、最初の項目のrateを1にする
                 if(rateSum === 0){
                     this.items[0].rate = 1;
                 }
                 this.drawCanvas();
-                console.log('Load items!');
+                event.target.value = '';
+                //console.log('Load items!');
             };
             reader.readAsText(file);
         },
