@@ -1,5 +1,12 @@
 [
     {
+        "title": "Hakurei Shrine Bot",
+        "image": "https://helkun.dev/image/works/hakurei_shrine_bot.png",
+        "date": "2024-10",
+        "description": "東方Project同好会「電々。通信」でおみくじが引けるように作成したDiscord Bot。酒に酔った勢いで製作した。10連おみくじもできる。",
+        "github": "https://github.com/hel-kun/HakureiShrineBot"
+    },
+    {
         "title": "Club House",
         "image": "https://helkun.dev/image/works/clubHouse.png",
         "date": "2024-08",
@@ -32,7 +39,7 @@
         "title": "単位之墓",
         "image": "https://helkun.dev/image/works/TaniNoHaka.png",
         "date": "2022-12",
-        "description": "単位を落としている電通大生が多すぎるので落単した単位を供養できるように作ったゲーミング単位之墓。モデリングは私が行い、回路はりんりんさんが作ってくれた。なお、私は今のところフル単である。"
+        "description": "単位を落としている電通大生が多すぎるので落単した単位を供養できるように作ったゲーミング単位之墓。モデリングは私が行い、回路はりんりんさんが作ってくれた。"
     },
     {
         "title": "キウイオイシカッタ & チョウフスミズルイ",
