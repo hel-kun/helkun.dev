@@ -16,6 +16,6 @@ const mdxIntegrations = [AutoImport({
 export default defineConfig({
   integrations: [tailwind(), react(), expressiveCode(), ...mdxIntegrations, vue()],
   markdown: {
-    rehypePlugins: [rehypeSlug]
+    rehypePlugins: [rehypeSlug],
   }
 });
