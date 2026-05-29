@@ -1,10 +1,15 @@
 ---
-const {title,image,date,description,github = "",siteUrl=""} = Astro.props;
+const {title,image,date,endDate,description,github = "",siteUrl=""} = Astro.props;
+const isCurrent = endDate === "now";
 ---
 <div class="box sm:w-[calc(50%_-_1rem)] w-full mx-2 p-4">
     <h2 class="text-center w-full">{title}</h2>
     <img class="rounded-lg max-h-96 mx-auto my-2" src={image}/>
-    <time class="mx-2 mt-0 mb-1" datetime={date}>制作日：{date}</time>
+    <p class="mx-2 mt-0 mb-1">
+        制作{endDate ? "期間" : "日"}：
+        <time datetime={date}>{date}</time>
+        {endDate ? <> 〜 {isCurrent ? "現在" : <time datetime={endDate}>{endDate}</time>}</> : ""}
+    </p>
     <p>{description}</p>
     <p class="text-center">
         {github!="" ? <a class="button"  href={github}>Github</a>: ""}

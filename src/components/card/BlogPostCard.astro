@@ -16,6 +16,11 @@ const { post } = Astro.props;
     </p>
     <time class="dark:text-slate-400 text-slate-600 mx-2 mt-0 mb-1" datetime={post.data.date.toISOString()}>
       {new Intl.DateTimeFormat('ja-JP').format(post.data.date)}
+      {post.data.updated && (
+        <>
+        ({new Intl.DateTimeFormat('ja-JP').format(post.data.updated)} updated)
+        </>
+      )}
     </time>
   </a> 
 </li>

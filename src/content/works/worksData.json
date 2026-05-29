@@ -1,5 +1,18 @@
 [
     {
+        "title": "なでエッグ",
+        "image": "https://helkun.dev/image/works/nadegg.png",
+        "date": "2024-06",
+        "endDate": "now",
+        "description": "撫でることでコミュニケーションを取ることができるペットロボット。顔を認識できるので、よく撫でる人を覚えて懐いていく(逆に、頭を殴ると嫌われる)。スバルとMoyashiと3人で開発している。現在は2号機を製作中である。"
+    },
+    {
+        "title": "メシネイター",
+        "image": "https://helkun.dev/image/works/meshinator.png",
+        "date": "2024-08",
+        "description": "Y-chan, sushichan044, 私の3人で制作した、献立提案サイト。(記憶が正しければ)裏ではgpt-4o-miniを使用して献立を提案している。フロントエンドはReactを使用。"
+    },
+    {
         "title": "Hakurei Shrine Bot",
         "image": "https://helkun.dev/image/works/hakurei_shrine_bot.png",
         "date": "2024-10",
@@ -18,7 +31,7 @@
         "image": "https://helkun.dev/image/works/webRoulette_beta.png",
         "date": "2024-05",
         "description": "WebルーレットのBeta版。自分がよく優柔不断でよく選択に迷うことが多いので作った。各項目の比率をいじることで確率を設定することも可能。永遠にBeta版を名乗り続けることで、バグが起こっても「まあ、Beta版だし」とユーザーを納得させることが可能。",
-        "siteUrl": "/works/webRoulette"
+        "siteUrl": "https://helkun.dev/works/webRoulette"
     },
     {
         "title": "PalServerDiscordBot",
