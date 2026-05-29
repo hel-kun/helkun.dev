@@ -4,7 +4,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, tags, date, heroImage } = Astro.props;
+const { title, description, tags, date, updated, heroImage } = Astro.props;
+const dateFormatter = new Intl.DateTimeFormat('ja-JP');
 ---
 <BaseLayout SITE_TITLE={title} SITE_DESCRIPTION={description} SITE_IMAGE={heroImage}>
 	<article>
@@ -27,9 +28,15 @@ const { title, description, tags, date, heroImage } = Astro.props;
 					{description}
 				</p>
 				<p class="mb-2 dark:text-slate-400 text-slate-600">
-					<time datetime={date.toISOString()}>
-						{new Intl.DateTimeFormat('ja-JP').format(date)}
-					</time>
+					投稿日：
+					<time datetime={date.toISOString()}>{dateFormatter.format(date)}</time>
+					{updated && (
+						<>
+							<br />
+							更新日：
+							<time datetime={updated.toISOString()}>{dateFormatter.format(updated)}</time>
+						</>
+					)}
 				</p>
 				<hr/>
 			</div>

@@ -9,6 +9,8 @@ import Github from '@/components/ui/svg/Github.astro';
 import Misskey from '@/components/ui/svg/Miskey.astro';
 import Bluesky from '@/components/ui/svg/Bluesky.astro';
 
+import BlogPostCard from '@/components/card/BlogPostCard.astro';
+
 import { getCollection } from 'astro:content';
 
 const latestpost = (await getCollection('blog')).filter((post)=>post.data.published).sort(
@@ -33,7 +35,14 @@ const latestpost = (await getCollection('blog')).filter((post)=>post.data.publis
 					<div class="flex">{latestpost.data.tags.map((tag) => <p class="mx-1 text-start underline text-blue-500 dark:text-blue-400">#{tag}</p>)}</div>
 					<h3 class="mx-2 my-0">{latestpost.data.title}</h3>
 					<p class="dark:text-slate-400 text-slate-600 mx-2 my-0"> {latestpost.data.description}</p>
-					<time class="dark:text-slate-400 text-slate-600 mx-2 mt-0 mb-1" datetime={latestpost.data.date.toISOString()}>{new Intl.DateTimeFormat('ja-JP').format(latestpost.data.date)}</time>
+					<time class="dark:text-slate-400 text-slate-600 mx-2 mt-0 mb-1" datetime={latestpost.data.date.toISOString()}>
+						{new Intl.DateTimeFormat('ja-JP').format(latestpost.data.date)}
+						{latestpost.data.updated && (
+        					<>
+        					({new Intl.DateTimeFormat('ja-JP').format(latestpost.data.updated)} updated)
+        					</>
+      					)}
+					</time>
 				</a> 
 			</div>
 		</div>

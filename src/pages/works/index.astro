@@ -4,22 +4,30 @@ import WorkCard from '@/components/card/WorkCard.astro';
 
 import WorksData from '@/content/works/worksData.json';
 
-WorksData.sort(
-    (a, b) => {
-        if(a.date > b.date){
-            return -1;
-        }else{
-            return 1;
-        }
+const getSortDate = (work: typeof WorksData[number]) => {
+    if ("endDate" in work && work.endDate) {
+        return work.endDate === "now" ? "9999-99" : work.endDate;
     }
-); 
+
+    return work.date;
+};
+
+WorksData.sort((a, b) => {
+    const endDateOrder = getSortDate(b).localeCompare(getSortDate(a));
+
+    if (endDateOrder !== 0) {
+        return endDateOrder;
+    }
+
+    return b.date.localeCompare(a.date);
+});
 ---
 <BaseLayout SITE_TITLE = "制作物 - へる破壊財団" SITE_DESCRIPTION="へるくんの制作物一覧です">
     <h1 class="font-bold text-4xl mb-4">Works</h1>
     <p>へるくんの制作物一覧です。</p>
     <div class="flex flex-wrap items-stretch">
         {WorksData.map((data) => 
-            <WorkCard title={data.title} image={data.image} date={data.date} description={data.description} github={data.github} siteUrl={data.siteUrl} />
+            <WorkCard title={data.title} image={data.image} date={data.date} endDate={"endDate" in data ? data.endDate : undefined} description={data.description} github={data.github} siteUrl={data.siteUrl} />
         )}
     </div>
 </BaseLayout>
