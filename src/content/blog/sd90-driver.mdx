@@ -3,6 +3,7 @@ title: 'SD-90のドライバをWin11にぶち込もう'
 description: '私は入れるのに苦戦しました'
 tags: ["音楽","技術"]
 date: 2023-06-02
+updated: 2026-06-09
 heroImage: 'https://res.cloudinary.com/helkun/image/upload/v1715079737/helkun.dev/blog/sd90-driver/sd-90_bp15fc.jpg'
 published: true
 ---
@@ -26,11 +27,32 @@ export const components = {blockquote: Blockquote};
 ## SD-90のドライバ事情
 なんとSD-90のドライバは公式ではWin8までしか出ていません！そんなわけで今のWin10以降の環境でSD-90を使うには一手間かかります。この先、SD-90を使いたい人が私みたいに苦戦しないように今からドライバのインストール方法を説明します。
 
+## インストールする前に
+この方法はSD-90の昔のドライバを互換モードで動かす方法です。これにはセキュリティの観点からいくつかのリスクが伴います。これらのリスクを理解した上で、自己責任でこの方法を試してください。
+
 ## インストール方法
 ### 1. Win8/8.1版のSD-90ドライバをインストールする
 こちらの[Roland公式ページ](http://static.roland.com/support_archive/jp/SD-90_62482892_readme_jp.html?_gl=1*for997*_gcl_au*MzQxNTMwMzQxLjE2ODU1MzM0Njk.*_ga*NjY2NTY3Mjc4LjE2ODU1MzM0Njk.*_ga_CF0D38ZPLC*MTY4NTYwOTgwNy4zLjAuMTY4NTYwOTgwNy42MC4wLjA.&_ga=2.15491890.504392551.1685533469-666567278.1685533469)からWindows 8 / 8.1版のドライバをインストールしてzipファイルを解凍してください。
 
 もし、以前にSD-90のドライバをインストールしたことがある人はこの段階で解凍したフォルダの中に入っているuninstall.exeを実行することをお勧めします。
+
+<WarningBox>
+公式ダウンロードページ先にあるリンクをクリックしてもドライバのダウンロードが始まらないことがあります。
+その場合は以下の手順を試してみてください。
+
+まず、ブラウザの開発者ツールを開きます（通常はF12キーかCtrl+Shift+Iで開けます）。すると、そのページのHTMLコードが見れるようになると思います。もし、開発者ツールのElementsタブが開いていない場合は、Elementsタブをクリックして開いてください。
+
+<ImgCard title="開発者ツール（Chromeの場合)" url="https://res.cloudinary.com/helkun/image/upload/v1780940517/helkun.dev/blog/sd90-driver/dev_tool.png" alt="開発者ツールの画像" />
+
+
+そこから
+```html
+<a href="http://lib.roland.co.jp/support/jp/downloads/res/62482892/sd90_w81d_v101.zip">ファイルをダウンロード</a>
+```
+と書いてある部分を探します。
+
+そのリンクをCtrlキーを押しながらクリックして、ダウンロードを開始します。(警告が出るかもしれませんが、~~怪しいダウンロードファイルじゃないはずなので~~許可してあげてください)
+</WarningBox>
 
 ### 2. ドライバ内のinfファイルを書き換える
 解凍したファイルの中に「Files」というフォルダが入っているはずです。そのフォルダの中の「64bit」->「Files」というフォルダの中に「RDIF1016.INF」というファイルがあると思います。それの中身を書き換えましょう。
@@ -107,12 +129,20 @@ export const components = {blockquote: Blockquote};
 <ImgCard title="このようになればオッケー" url="https://res.cloudinary.com/helkun/image/upload/v1715079737/helkun.dev/blog/sd90-driver/coa-divide_vgohi6.png" alt="メモリ整合性の設定画面" />
 
 ### 4. 署名なしドライバを実行できるようにする
-説明が面倒なので、以下のサイトを参考にしてください。(説明してくれーって言われた書きますが...)
+SD-90のドライバは署名の期限が切れているため、署名なしドライバとして扱われます。Windowsはセキュリティの観点から署名なしドライバのインストールをブロックするため、これを許可する設定に変更する必要があります。
+ただ、この説明は面倒なので、以下のサイトを参考にしてください。(説明してくれーって言われた書きますが...)
 
 <UrlCard url="https://freesoft.tvbok.com/win10/testmode.html#a03" />
 
 ### 5. ドライバを入れる
-さて、後はSD-90のドライバフォルダに入っているinstall.exeを実行しましょう。これでインストールに成功したら、あなたは人生の勝利者です！
+さて、後はSD-90のドライバフォルダに入っているSetup.exeを実行しましょう。
+実行する前にSD-90はまだPCに接続しないでください。のちにドライバのインストール中に接続するように指示されるので、そのときに接続してください。
+
+インストールは基本的に画面の指示に従っていけば問題ないと思います。署名なしドライバを強制的に開く関係でセキュリティ関連の警告がいくつか出ると思いますが、許可してあげて問題ないと思います。
+
+<ImgCard title="このような警告が出たりしますが、インストールします" url="https://res.cloudinary.com/helkun/image/upload/v1780940530/helkun.dev/blog/sd90-driver/warning.png" alt="警告画面" />
+
+<ImgCard title="この画面が出たらSD-90をPCにつないで電源を付けてあげて下さい" url="https://res.cloudinary.com/helkun/image/upload/v1780940530/helkun.dev/blog/sd90-driver/warning2.png" alt="警告画面" />
 
 ## 最後に
 人生の勝利者になった君！君も東方風erにならないかい？(もし、このインストール方法に間違いがあったら[@hel_kun](https://twitter.com/hel_kun)に連絡してくれると助かります)
